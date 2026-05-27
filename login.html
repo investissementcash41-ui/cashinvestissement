@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Connexion - CASHINVESTISSEMENT</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+
+            background:
+                linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #7f1d1d);
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+            color: white;
+
+        }
+
+        .container {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            background: rgba(255, 255, 255, 0.05);
+
+            padding: 40px;
+
+            border-radius: 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 34px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+            color: #38bdf8;
+
+            text-shadow: 0 0 15px #38bdf8;
+
+        }
+
+        .title {
+
+            text-align: center;
+
+            font-size: 24px;
+
+            margin-bottom: 30px;
+
+            color: #ffd60a;
+
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 16px;
+
+            margin-top: 18px;
+
+            border: none;
+
+            outline: none;
+
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            color: white;
+
+            font-size: 16px;
+
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 16px;
+
+            margin-top: 25px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(90deg, #2563eb, #38bdf8);
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+        button:hover {
+
+            transform: scale(1.03);
+
+        }
+
+        .register {
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            font-size: 15px;
+
+        }
+
+        .register a {
+
+            color: #ffd60a;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+        }
+
+        .footer {
+
+            margin-top: 30px;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #94a3b8;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">
+
+            CASHINVESTISSEMENT
+
+        </div>
+
+        <div class="title">
+
+            Connexion à votre compte
+
+        </div>
+
+        <input type="email" id="email" placeholder="Adresse email">
+
+        <input type="password" id="password" placeholder="Mot de passe">
+
+        <button onclick="login()">
+
+            Se connecter
+
+        </button>
+
+        <div class="register">
+
+            Vous n’avez pas de compte ?
+
+            <a href="register.html">
+
+                Créer un compte
+
+            </a>
+
+        </div>
+
+        <div class="footer">
+
+            CASHINVESTISSEMENT © 2026
+
+        </div>
+
+    </div>
+
+    <script type="module">
+
+        import { initializeApp }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+        import {
+
+            getAuth,
+            signInWithEmailAndPassword
+
+        }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
+            authDomain: "cashinvestissement-f8104.firebaseapp.com",
+            projectId: "cashinvestissement-f8104",
+            storageBucket: "cashinvestissement-f8104.firebasestorage.app",
+            messagingSenderId: "645010004253",
+            appId: "1:645010004253:web:e885536adcc0f1966e69f4"
+
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        const auth = getAuth(app);
+
+        console.log("Firebase connecté avec succès 🔥");
+
+        window.login = async function () {
+
+            const email =
+                document.getElementById("email").value;
+
+            const password =
+                document.getElementById("password").value;
+
+            if (email == "" || password == "") {
+
+                alert(
+                    "Veuillez remplir tous les champs."
+                );
+
+                return;
+
+            }
+
+            try {
+
+                await signInWithEmailAndPassword(
+
+                    auth,
+                    email,
+                    password
+
+                );
+
+                alert(
+                    "Connexion réussie ✅"
+                );
+
+                window.location.href =
+                    "dashboard.html";
+
+            } catch (error) {
+
+                alert(
+                    "Email ou mot de passe incorrect."
+                );
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

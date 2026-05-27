@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CASHINVESTISSEMENT</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+
+            background:
+                linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #7f1d1d);
+
+            min-height: 100vh;
+
+            color: white;
+
+        }
+
+        header {
+
+            width: 100%;
+
+            padding: 20px 8%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background: rgba(0, 0, 0, 0.3);
+
+            backdrop-filter: blur(10px);
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            z-index: 1000;
+
+        }
+
+        .logo {
+
+            font-size: 34px;
+
+            font-weight: bold;
+
+            color: #38bdf8;
+
+            text-shadow: 0 0 15px #38bdf8;
+
+        }
+
+        nav a {
+
+            text-decoration: none;
+
+            color: white;
+
+            margin-left: 25px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+        }
+
+        nav a:hover {
+
+            color: #ffd60a;
+
+        }
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 120px 8% 60px;
+
+        }
+
+        .hero-content {
+
+            max-width: 750px;
+
+            text-align: center;
+
+        }
+
+        .hero-content h1 {
+
+            font-size: 65px;
+
+            line-height: 80px;
+
+            margin-bottom: 25px;
+
+        }
+
+        .hero-content p {
+
+            font-size: 20px;
+
+            line-height: 38px;
+
+            color: #d6d6d6;
+
+            margin-bottom: 40px;
+
+        }
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+        }
+
+        .btn {
+
+            padding: 18px 35px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            text-decoration: none;
+
+            color: white;
+
+        }
+
+        .login {
+
+            background:
+                linear-gradient(90deg, #2563eb, #38bdf8);
+
+        }
+
+        .register {
+
+            background:
+                linear-gradient(90deg, #dc2626, #f59e0b);
+
+        }
+
+        .btn:hover {
+
+            transform: scale(1.05);
+
+        }
+
+        .section {
+
+            padding: 80px 8%;
+
+        }
+
+        .section-title {
+
+            font-size: 42px;
+
+            margin-bottom: 30px;
+
+            color: #ffd60a;
+
+            text-align: center;
+
+        }
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 25px;
+
+            margin-top: 40px;
+
+        }
+
+        .card {
+
+            background: rgba(255, 255, 255, 0.05);
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.3s;
+
+        }
+
+        .card:hover {
+
+            transform: translateY(-8px);
+
+        }
+
+        .card h3 {
+
+            font-size: 24px;
+
+            margin-bottom: 20px;
+
+            color: #38bdf8;
+
+        }
+
+        .card p {
+
+            line-height: 30px;
+
+            color: #d6d6d6;
+
+        }
+
+        footer {
+
+            padding: 30px;
+
+            text-align: center;
+
+            background: rgba(0, 0, 0, 0.4);
+
+            font-size: 15px;
+
+            color: #94a3b8;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+
+            CASHINVESTISSEMENT
+
+        </div>
+
+        <nav>
+
+            <a href="#">Accueil</a>
+
+            <a href="login.html">Connexion</a>
+
+            <a href="register.html">Inscription</a>
+
+        </nav>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+
+                Investissez intelligemment pour votre avenir financier
+
+            </h1>
+
+            <p>
+
+                CashInvestissement est une plateforme moderne spécialisée dans les investissements numériques, les
+                revenus passifs et les solutions financières sécurisées pour les investisseurs du monde entier.
+
+            </p>
+
+            <div class="buttons">
+
+                <a href="login.html" class="btn login">
+
+                    Connexion
+
+                </a>
+
+                <a href="register.html" class="btn register">
+
+                    Créer un compte
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2 class="section-title">
+
+            Pourquoi choisir notre plateforme ?
+
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+
+                    Sécurité Totale
+
+                </h3>
+
+                <p>
+
+                    Toutes les transactions sont protégées grâce à des technologies modernes et sécurisées.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+
+                    Revenus Quotidiens
+
+                </h3>
+
+                <p>
+
+                    Recevez des bénéfices quotidiens selon le plan d’investissement choisi.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+
+                    Retraits Rapides
+
+                </h3>
+
+                <p>
+
+                    Les demandes de retrait sont traitées rapidement par nos administrateurs.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        CASHINVESTISSEMENT © 2026 — Plateforme Internationale d’Investissement
+
+    </footer>
+
+    <script type="module">
+
+        import { initializeApp }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
+            authDomain: "cashinvestissement-f8104.firebaseapp.com",
+            projectId: "cashinvestissement-f8104",
+            storageBucket: "cashinvestissement-f8104.firebasestorage.app",
+            messagingSenderId: "645010004253",
+            appId: "1:645010004253:web:e885536adcc0f1966e69f4"
+
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        console.log("Firebase connecté avec succès 🔥");
+
+    </script>
+
+</body>
+
+</html>

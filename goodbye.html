@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Au revoir - CASHINVESTISSEMENT</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+
+            background:
+                linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #7f1d1d);
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+            color: white;
+
+        }
+
+        .container {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            background: rgba(255, 255, 255, 0.05);
+
+            padding: 45px;
+
+            border-radius: 30px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+
+            text-align: center;
+
+        }
+
+        .logo {
+
+            font-size: 40px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+
+            color: #38bdf8;
+
+            text-shadow: 0 0 15px #38bdf8;
+
+        }
+
+        .title {
+
+            font-size: 35px;
+
+            margin-bottom: 25px;
+
+            color: #ffd60a;
+
+        }
+
+        .text {
+
+            font-size: 18px;
+
+            line-height: 35px;
+
+            color: #d6d6d6;
+
+            margin-bottom: 35px;
+
+        }
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+        }
+
+        .btn {
+
+            padding: 16px 30px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            color: white;
+
+            transition: 0.3s;
+
+        }
+
+        .home {
+
+            background:
+                linear-gradient(90deg, #2563eb, #38bdf8);
+
+        }
+
+        .login {
+
+            background:
+                linear-gradient(90deg, #dc2626, #f59e0b);
+
+        }
+
+        .btn:hover {
+
+            transform: scale(1.05);
+
+        }
+
+        .footer {
+
+            margin-top: 35px;
+
+            font-size: 13px;
+
+            color: #94a3b8;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">
+
+            CASHINVESTISSEMENT
+
+        </div>
+
+        <div class="title">
+
+            Merci pour votre visite 👋
+
+        </div>
+
+        <div class="text">
+
+            Vous avez été déconnecté avec succès.<br>
+
+            Merci d’avoir utilisé la plateforme
+            CASHINVESTISSEMENT.<br><br>
+
+            Nous espérons vous revoir très bientôt
+            pour continuer votre aventure financière
+            avec nous.
+
+        </div>
+
+        <div class="buttons">
+
+            <a href="index.html" class="btn home">
+
+                Accueil
+
+            </a>
+
+            <a href="login.html" class="btn login">
+
+                Connexion
+
+            </a>
+
+        </div>
+
+        <div class="footer">
+
+            CASHINVESTISSEMENT © 2026
+
+        </div>
+
+    </div>
+
+    <script type="module">
+
+        import { initializeApp }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
+            authDomain: "cashinvestissement-f8104.firebaseapp.com",
+            projectId: "cashinvestissement-f8104",
+            storageBucket: "cashinvestissement-f8104.firebasestorage.app",
+            messagingSenderId: "645010004253",
+            appId: "1:645010004253:web:e885536adcc0f1966e69f4"
+
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        console.log("Firebase connecté avec succès 🔥");
+
+    </script>
+
+</body>
+
+</html>

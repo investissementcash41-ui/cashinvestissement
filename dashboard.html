@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - CASHINVESTISSEMENT</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+
+            background:
+                linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #7f1d1d);
+
+            min-height: 100vh;
+
+            padding: 20px;
+
+            color: white;
+
+        }
+
+        .header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+
+        }
+
+        .logo {
+
+            font-size: 34px;
+
+            font-weight: bold;
+
+            color: #38bdf8;
+
+            text-shadow: 0 0 15px #38bdf8;
+
+        }
+
+        .logout {
+
+            padding: 14px 22px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(90deg, #dc2626, #f59e0b);
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+        .logout:hover {
+
+            transform: scale(1.03);
+
+        }
+
+        .card {
+
+            background: rgba(255, 255, 255, 0.05);
+
+            padding: 25px;
+
+            border-radius: 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+
+            margin-bottom: 25px;
+
+        }
+
+        .balance-title {
+
+            font-size: 18px;
+
+            color: #d6d6d6;
+
+        }
+
+        .balance {
+
+            font-size: 50px;
+
+            font-weight: bold;
+
+            margin-top: 12px;
+
+            color: #22c55e;
+
+        }
+
+        .actions {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+
+            margin-top: 20px;
+
+        }
+
+        .btn {
+
+            padding: 16px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            color: white;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+        .deposit {
+
+            background:
+                linear-gradient(90deg, #2563eb, #38bdf8);
+
+        }
+
+        .withdraw {
+
+            background:
+                linear-gradient(90deg, #dc2626, #f59e0b);
+
+        }
+
+        .btn:hover {
+
+            transform: scale(1.03);
+
+        }
+
+        .title {
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+
+            color: #ffd60a;
+
+        }
+
+        .plan {
+
+            background: rgba(255, 255, 255, 0.05);
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            margin-top: 20px;
+
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .plan h3 {
+
+            font-size: 24px;
+
+            color: #38bdf8;
+
+            margin-bottom: 15px;
+
+        }
+
+        .plan p {
+
+            line-height: 32px;
+
+            font-size: 16px;
+
+            color: #e2e8f0;
+
+        }
+
+        .buy {
+
+            width: 100%;
+
+            padding: 16px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            margin-top: 20px;
+
+            background:
+                linear-gradient(90deg, #16a34a, #22c55e);
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+        .buy:hover {
+
+            transform: scale(1.02);
+
+        }
+
+        .days {
+
+            margin-top: 12px;
+
+            color: #ffd60a;
+
+            font-size: 14px;
+
+        }
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 35px;
+
+            font-size: 14px;
+
+            color: #94a3b8;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <div class="logo">
+
+            CASHINVESTISSEMENT
+
+        </div>
+
+        <button class="logout" onclick="logout()">
+
+            Déconnexion
+
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <div class="balance-title">
+
+            Solde principal
+
+        </div>
+
+        <div class="balance" id="solde">
+
+            0 HTG
+
+        </div>
+
+        <div class="actions">
+
+            <button class="btn deposit" onclick="window.location.href='deposit.html'">
+
+                Dépôt
+
+            </button>
+
+            <button class="btn withdraw" onclick="window.location.href='withdraw.html'">
+
+                Retrait
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <h2 class="title">
+
+        Plans d’investissement
+
+    </h2>
+
+    <div class="plan">
+
+        <h3>PLAN STARTER</h3>
+
+        <p>
+
+            Montant : 1 500 HTG<br>
+
+            Durée : 300 jours<br>
+
+            Profit quotidien : 4%
+
+        </p>
+
+        <button class="buy" onclick="acheterPlan(1500,'PLAN STARTER')">
+
+            Acheter ce plan
+
+        </button>
+
+        <div class="days">
+
+            Jours restants : 300
+
+        </div>
+
+    </div>
+
+    <div class="plan">
+
+        <h3>PLAN SILVER</h3>
+
+        <p>
+
+            Montant : 5 000 HTG<br>
+
+            Durée : 300 jours<br>
+
+            Profit quotidien : 4%
+
+        </p>
+
+        <button class="buy" onclick="acheterPlan(5000,'PLAN SILVER')">
+
+            Acheter ce plan
+
+        </button>
+
+        <div class="days">
+
+            Jours restants : 300
+
+        </div>
+
+    </div>
+
+    <div class="plan">
+
+        <h3>PLAN GOLD</h3>
+
+        <p>
+
+            Montant : 15 000 HTG<br>
+
+            Durée : 300 jours<br>
+
+            Profit quotidien : 4%
+
+        </p>
+
+        <button class="buy" onclick="acheterPlan(15000,'PLAN GOLD')">
+
+            Acheter ce plan
+
+        </button>
+
+        <div class="days">
+
+            Jours restants : 300
+
+        </div>
+
+    </div>
+
+    <h2 class="title">
+
+        Plans Professionnels
+
+    </h2>
+
+    <div class="plan">
+
+        <h3>PLAN BUSINESS</h3>
+
+        <p>
+
+            Montant : 50 000 HTG<br>
+
+            Durée : 60 jours<br>
+
+            Profit quotidien : 4%
+
+        </p>
+
+        <button class="buy" onclick="acheterPlan(50000,'PLAN BUSINESS')">
+
+            Acheter ce plan
+
+        </button>
+
+        <div class="days">
+
+            Jours restants : 60
+
+        </div>
+
+    </div>
+
+    <div class="plan">
+
+        <h3>PLAN PREMIUM</h3>
+
+        <p>
+
+            Montant : 75 000 HTG<br>
+
+            Durée : 60 jours<br>
+
+            Profit quotidien : 4%
+
+        </p>
+
+        <button class="buy" onclick="acheterPlan(75000,'PLAN PREMIUM')">
+
+            Acheter ce plan
+
+        </button>
+
+        <div class="days">
+
+            Jours restants : 60
+
+        </div>
+
+    </div>
+
+    <div class="plan">
+
+        <h3>PLAN VIP</h3>
+
+        <p>
+
+            Montant : 100 000 HTG<br>
+
+            Durée : 60 jours<br>
+
+            Profit quotidien : 4%
+
+        </p>
+
+        <button class="buy" onclick="acheterPlan(100000,'PLAN VIP')">
+
+            Acheter ce plan
+
+        </button>
+
+        <div class="days">
+
+            Jours restants : 60
+
+        </div>
+
+    </div>
+
+    <div class="plan">
+
+        <h3>PLAN EMPIRE</h3>
+
+        <p>
+
+            Montant : 150 000 HTG<br>
+
+            Durée : 60 jours<br>
+
+            Profit quotidien : 4%
+
+        </p>
+
+        <button class="buy" onclick="acheterPlan(150000,'PLAN EMPIRE')">
+
+            Acheter ce plan
+
+        </button>
+
+        <div class="days">
+
+            Jours restants : 60
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        CASHINVESTISSEMENT © 2026
+
+    </div>
+
+    <script type="module">
+
+        import { initializeApp }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+        import {
+
+            getAuth,
+            signOut,
+            onAuthStateChanged
+
+        }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        import {
+
+            getFirestore,
+            doc,
+            getDoc,
+            setDoc,
+            updateDoc,
+            increment
+
+        }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
+            authDomain: "cashinvestissement-f8104.firebaseapp.com",
+            projectId: "cashinvestissement-f8104",
+            storageBucket: "cashinvestissement-f8104.firebasestorage.app",
+            messagingSenderId: "645010004253",
+            appId: "1:645010004253:web:e885536adcc0f1966e69f4"
+
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        const auth = getAuth(app);
+
+        const db = getFirestore(app);
+
+        let currentUser = null;
+
+        let solde = 0;
+
+        console.log("Firebase connecté avec succès 🔥");
+
+        onAuthStateChanged(auth, async (user) => {
+
+            if (user) {
+
+                currentUser = user;
+
+                const userRef =
+                    doc(db, "users", user.uid);
+
+                const userSnap =
+                    await getDoc(userRef);
+
+                if (!userSnap.exists()) {
+
+                    await setDoc(userRef, {
+
+                        solde: 100
+
+                    });
+
+                    solde = 100;
+
+                } else {
+
+                    solde =
+                        userSnap.data().solde || 0;
+
+                }
+
+                document.getElementById("solde").innerText =
+                    solde + " HTG";
+
+            } else {
+
+                window.location.href =
+                    "login.html";
+
+            }
+
+        });
+
+        window.acheterPlan =
+            async function (prix, nom) {
+
+                if (solde < prix) {
+
+                    alert(
+                        "Solde insuffisant pour acheter ce plan."
+                    );
+
+                    return;
+
+                }
+
+                let confirmation =
+                    confirm(
+                        "Voulez-vous vraiment acheter " + nom + " ?"
+                    );
+
+                if (!confirmation) {
+
+                    return;
+
+                }
+
+                await updateDoc(
+
+                    doc(db, "users", currentUser.uid),
+
+                    {
+                        solde: increment(-prix)
+                    }
+
+                );
+
+                solde = solde - prix;
+
+                document.getElementById("solde").innerText =
+                    solde + " HTG";
+
+                alert(
+                    "Plan acheté avec succès ✅"
+                );
+
+            }
+
+        window.logout =
+            async function () {
+
+                let confirmation =
+                    confirm(
+                        "Voulez-vous vraiment quitter CASHINVESTISSEMENT ?"
+                    );
+
+                if (!confirmation) {
+
+                    return;
+
+                }
+
+                await signOut(auth);
+
+                alert(
+                    "Compte déconnecté avec succès."
+                );
+
+                window.location.href =
+                    "index.html";
+
+            }
+
+    </script>
+
+</body>
+
+</html>

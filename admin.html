@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel - CASHINVESTISSEMENT</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+
+            background:
+                linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #7f1d1d);
+
+            min-height: 100vh;
+
+            padding: 20px;
+
+            color: white;
+
+        }
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 35px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+
+            color: #38bdf8;
+
+            text-shadow: 0 0 15px #38bdf8;
+
+        }
+
+        .section {
+
+            background: rgba(255, 255, 255, 0.05);
+
+            padding: 25px;
+
+            border-radius: 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            backdrop-filter: blur(15px);
+
+            margin-bottom: 25px;
+
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .section h2 {
+
+            margin-bottom: 20px;
+
+            color: #ffd60a;
+
+            font-size: 26px;
+
+        }
+
+        .card {
+
+            background: rgba(255, 255, 255, 0.05);
+
+            padding: 20px;
+
+            border-radius: 18px;
+
+            margin-top: 15px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+        }
+
+        .card p {
+
+            line-height: 30px;
+
+            color: #d6d6d6;
+
+            word-break: break-word;
+
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 15px;
+
+            border: none;
+
+            outline: none;
+
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            color: white;
+
+            font-size: 15px;
+
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 18px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(90deg, #16a34a, #22c55e);
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+        button:hover {
+
+            transform: scale(1.02);
+
+        }
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 30px;
+
+            font-size: 13px;
+
+            color: #94a3b8;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="logo">
+
+        CASHINVESTISSEMENT ADMIN
+
+    </div>
+
+    <div class="section">
+
+        <h2>
+
+            Utilisateurs
+
+        </h2>
+
+        <div id="users">
+
+            Chargement...
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>
+
+            Demandes de dépôt
+
+        </h2>
+
+        <div id="depotDemandes">
+
+            Chargement...
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>
+
+            Demandes de retrait
+
+        </h2>
+
+        <div id="retraits">
+
+            Chargement...
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>
+
+            Ajouter du solde
+
+        </h2>
+
+        <input type="text" id="uid" placeholder="UID utilisateur">
+
+        <input type="number" id="montant" placeholder="Montant HTG">
+
+        <button onclick="ajouterSolde()">
+
+            Ajouter le solde
+
+        </button>
+
+    </div>
+
+    <div class="footer">
+
+        CASHINVESTISSEMENT © 2026
+
+    </div>
+
+    <script type="module">
+
+        import { initializeApp }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+        import {
+
+            getFirestore,
+            collection,
+            getDocs,
+            doc,
+            updateDoc,
+            increment
+
+        }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
+            authDomain: "cashinvestissement-f8104.firebaseapp.com",
+            projectId: "cashinvestissement-f8104",
+            storageBucket: "cashinvestissement-f8104.firebasestorage.app",
+            messagingSenderId: "645010004253",
+            appId: "1:645010004253:web:e885536adcc0f1966e69f4"
+
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        const db = getFirestore(app);
+
+        console.log("Firebase connecté avec succès 🔥");
+
+        async function chargerUtilisateurs() {
+
+            const querySnapshot =
+                await getDocs(collection(db, "users"));
+
+            let html = "";
+
+            querySnapshot.forEach((docu) => {
+
+                const data = docu.data();
+
+                html += `
+
+<div class="card">
+
+<p><strong>UID :</strong>
+${docu.id}</p>
+
+<p><strong>Nom :</strong>
+${data.nom || "Non défini"}</p>
+
+<p><strong>Email :</strong>
+${data.email}</p>
+
+<p><strong>Solde :</strong>
+${data.solde || 0} HTG</p>
+
+</div>
+
+`;
+
+            });
+
+            document.getElementById("users").innerHTML =
+                html;
+
+        }
+
+        async function chargerDepots() {
+
+            const querySnapshot =
+                await getDocs(collection(db, "depotDemandes"));
+
+            let html = "";
+
+            querySnapshot.forEach((docu) => {
+
+                const data = docu.data();
+
+                html += `
+
+<div class="card">
+
+<p><strong>Email :</strong>
+${data.email}</p>
+
+<p><strong>Méthode :</strong>
+${data.methode}</p>
+
+<p><strong>Montant :</strong>
+${data.montant} HTG</p>
+
+<p><strong>Transaction :</strong>
+${data.transaction}</p>
+
+<p><strong>Statut :</strong>
+${data.statut}</p>
+
+</div>
+
+`;
+
+            });
+
+            document.getElementById("depotDemandes").innerHTML =
+                html;
+
+        }
+
+        async function chargerRetraits() {
+
+            const querySnapshot =
+                await getDocs(collection(db, "retraits"));
+
+            let html = "";
+
+            querySnapshot.forEach((docu) => {
+
+                const data = docu.data();
+
+                html += `
+
+<div class="card">
+
+<p><strong>Email :</strong>
+${data.email}</p>
+
+<p><strong>Méthode :</strong>
+${data.methode}</p>
+
+<p><strong>Nom :</strong>
+${data.nom}</p>
+
+<p><strong>Montant :</strong>
+${data.montant} HTG</p>
+
+<p><strong>Statut :</strong>
+${data.statut}</p>
+
+</div>
+
+`;
+
+            });
+
+            document.getElementById("retraits").innerHTML =
+                html;
+
+        }
+
+        window.ajouterSolde =
+            async function () {
+
+                const uid =
+                    document.getElementById("uid").value;
+
+                const montant =
+                    Number(
+                        document.getElementById("montant").value
+                    );
+
+                if (uid == "" || montant == "") {
+
+                    alert(
+                        "Veuillez remplir tous les champs."
+                    );
+
+                    return;
+
+                }
+
+                await updateDoc(
+
+                    doc(db, "users", uid),
+
+                    {
+
+                        solde: increment(montant)
+
+                    }
+
+                );
+
+                alert(
+                    "Solde ajouté avec succès ✅"
+                );
+
+                location.reload();
+
+            }
+
+        chargerUtilisateurs();
+
+        chargerDepots();
+
+        chargerRetraits();
+
+    </script>
+
+</body>
+
+</html>
