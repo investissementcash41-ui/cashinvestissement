@@ -1,3 +1,7 @@
+<!-- ========================= -->
+<!-- ADMIN PANEL PREMIUM FINAL -->
+<!-- ========================= -->
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -8,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-        ADMIN PANEL - CASHINVESTISSEMENT
+        ADMIN PANEL PREMIUM
     </title>
 
     <style>
@@ -23,16 +27,17 @@
 
             background:
                 linear-gradient(135deg,
-                    #020617,
+                    #050816,
                     #0f172a,
-                    #1e3a8a,
-                    #7f1d1d);
+                    #1d4ed8,
+                    #14532d,
+                    #991b1b);
 
             color: white;
 
-            min-height: 100vh;
-
             padding: 20px;
+
+            min-height: 100vh;
 
         }
 
@@ -54,29 +59,29 @@
 
         .logo {
 
-            font-size: 26px;
+            font-size: 30px;
 
             font-weight: bold;
 
-            color: #38bdf8;
+            color: gold;
 
         }
 
         .logout {
 
-            padding: 12px 20px;
+            padding: 12px 22px;
 
             border: none;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
-            background: #dc2626;
+            background: red;
 
             color: white;
 
-            cursor: pointer;
-
             font-size: 14px;
+
+            cursor: pointer;
 
         }
 
@@ -95,48 +100,58 @@
 
         .card {
 
+            padding: 25px;
+
+            border-radius: 22px;
+
             background:
-                rgba(255, 255, 255, 0.05);
-
-            padding: 20px;
-
-            border-radius: 18px;
+                rgba(255, 255, 255, 0.06);
 
             border:
-                1px solid rgba(255, 255, 255, 0.08);
+                1px solid rgba(255, 255, 255, 0.1);
 
             backdrop-filter: blur(10px);
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+        .card:hover {
+
+            transform: scale(1.03);
 
         }
 
         .card h3 {
 
-            font-size: 15px;
+            font-size: 16px;
 
-            color: #d6d6d6;
+            margin-bottom: 15px;
 
-            margin-bottom: 10px;
+            color: #d1d5db;
 
         }
 
-        .card h2 {
+        .card h1 {
 
-            font-size: 24px;
+            font-size: 34px;
 
-            color: #38bdf8;
+            color: #fde047;
 
         }
 
         .section {
 
-            background:
-                rgba(255, 255, 255, 0.05);
+            margin-top: 25px;
 
             padding: 25px;
 
-            border-radius: 18px;
+            border-radius: 22px;
 
-            margin-bottom: 30px;
+            background:
+                rgba(255, 255, 255, 0.05);
 
             border:
                 1px solid rgba(255, 255, 255, 0.08);
@@ -147,39 +162,35 @@
 
             margin-bottom: 20px;
 
-            font-size: 20px;
+            font-size: 24px;
 
-            color: #ffffff;
+            color: #38bdf8;
 
         }
 
-        .user,
-        .depot,
-        .retrait {
+        .box {
+
+            padding: 18px;
+
+            border-radius: 18px;
 
             background:
                 rgba(255, 255, 255, 0.05);
 
-            padding: 18px;
-
-            border-radius: 15px;
-
-            margin-bottom: 15px;
+            margin-bottom: 18px;
 
             border:
-                1px solid rgba(255, 255, 255, 0.08);
+                1px solid rgba(255, 255, 255, 0.06);
 
         }
 
-        .user p,
-        .depot p,
-        .retrait p {
+        .box p {
+
+            line-height: 30px;
 
             font-size: 14px;
 
-            line-height: 28px;
-
-            color: #d6d6d6;
+            color: #e5e7eb;
 
         }
 
@@ -188,7 +199,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(160px, 1fr));
+                repeat(auto-fit, minmax(150px, 1fr));
 
             gap: 10px;
 
@@ -196,84 +207,67 @@
 
         }
 
-        .buttons button {
+        button {
 
             padding: 12px;
 
             border: none;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
             cursor: pointer;
 
             font-size: 14px;
+
+            font-weight: bold;
 
             color: white;
 
         }
 
         .green {
-
             background: #16a34a;
-
         }
 
         .red {
-
             background: #dc2626;
-
         }
 
         .blue {
-
             background: #2563eb;
-
         }
 
         .orange {
-
             background: #ea580c;
-
         }
 
-        .input-box {
-
-            margin-top: 15px;
-
+        .yellow {
+            background: #ca8a04;
         }
 
-        .input-box input {
+        .history {
 
-            width: 100%;
-
-            padding: 14px;
-
-            border: none;
-
-            outline: none;
-
-            border-radius: 10px;
-
-            background:
-                rgba(255, 255, 255, 0.08);
-
-            color: white;
-
-            font-size: 14px;
+            margin-top: 30px;
 
         }
 
         footer {
 
-            text-align: center;
-
             margin-top: 40px;
+
+            text-align: center;
 
             font-size: 13px;
 
-            color: #94a3b8;
+            color: #d1d5db;
 
             line-height: 25px;
+
+        }
+
+        .hidden {
+
+            display: none;
 
         }
     </style>
@@ -286,7 +280,7 @@
 
         <div class="logo">
 
-            👑 ADMIN PANEL
+            👑 ADMIN PANEL PREMIUM
 
         </div>
 
@@ -300,78 +294,62 @@
 
     <div class="cards">
 
-        <div class="card">
+        <div class="card" onclick="showSection('usersSection')">
 
             <h3>
-
-                Total Utilisateurs
-
+                👥 Total Utilisateurs
             </h3>
 
-            <h2 id="totalUsers">
-
+            <h1 id="totalUsers">
                 0
-
-            </h2>
+            </h1>
 
         </div>
 
-        <div class="card">
+        <div class="card" onclick="showSection('depotSection')">
 
             <h3>
-
-                Total Dépôts
-
+                🏦 Total Dépôts
             </h3>
 
-            <h2 id="totalDepots">
-
+            <h1 id="totalDepots">
                 0
-
-            </h2>
+            </h1>
 
         </div>
 
-        <div class="card">
+        <div class="card" onclick="showSection('retraitSection')">
 
             <h3>
-
-                Total Retraits
-
+                💸 Total Retraits
             </h3>
 
-            <h2 id="totalRetraits">
-
+            <h1 id="totalRetraits">
                 0
-
-            </h2>
+            </h1>
 
         </div>
 
-        <div class="card">
+        <div class="card" onclick="showSection('historySection')">
 
             <h3>
-
-                Plans Actifs
-
+                📜 Historique
             </h3>
 
-            <h2 id="totalPlans">
-
+            <h1 id="totalHistory">
                 0
-
-            </h2>
+            </h1>
 
         </div>
 
     </div>
 
-    <div class="section">
+    <!-- USERS -->
+
+    <div class="section" id="usersSection">
 
         <h2>
-
-            👥 Utilisateurs
-
+            👥 Gestion Utilisateurs
         </h2>
 
         <div id="usersContainer">
@@ -380,12 +358,12 @@
 
     </div>
 
-    <div class="section">
+    <!-- DEPOTS -->
+
+    <div class="section hidden" id="depotSection">
 
         <h2>
-
-            🏦 Demandes de Dépôt
-
+            🏦 Gestion Dépôts
         </h2>
 
         <div id="depotsContainer">
@@ -394,15 +372,29 @@
 
     </div>
 
-    <div class="section">
+    <!-- RETRAITS -->
+
+    <div class="section hidden" id="retraitSection">
 
         <h2>
-
-            💸 Demandes de Retrait
-
+            💸 Gestion Retraits
         </h2>
 
         <div id="retraitsContainer">
+
+        </div>
+
+    </div>
+
+    <!-- HISTORIQUE -->
+
+    <div class="section hidden" id="historySection">
+
+        <h2>
+            📜 Historique Administrateur
+        </h2>
+
+        <div id="historyContainer">
 
         </div>
 
@@ -428,7 +420,8 @@
             doc,
             updateDoc,
             deleteDoc,
-            getDoc
+            getDoc,
+            addDoc
 
         }
 
@@ -463,66 +456,77 @@
         const auth =
             getAuth(app);
 
+        window.showSection =
+            function (sectionId) {
+
+                document
+                    .querySelectorAll(".section")
+                    .forEach(sec => {
+
+                        sec.classList.add("hidden");
+
+                    });
+
+                document
+                    .getElementById(sectionId)
+                    .classList.remove("hidden");
+
+            }
+
         async function loadUsers() {
 
-            const querySnapshot =
+            const users =
                 await getDocs(
                     collection(db, "users")
                 );
 
-            document.getElementById(
-                "totalUsers"
-            ).innerText =
-                querySnapshot.size;
-
-            let totalPlans = 0;
+            document
+                .getElementById("totalUsers")
+                .innerText =
+                users.size;
 
             const container =
-                document.getElementById(
-                    "usersContainer"
-                );
+                document
+                    .getElementById("usersContainer");
 
             container.innerHTML = "";
 
-            querySnapshot.forEach((docu) => {
+            users.forEach((docu) => {
 
                 const data =
                     docu.data();
 
-                totalPlans +=
-                    data.plans.length;
-
                 container.innerHTML += `
 
-<div class="user">
+<div class="box">
 
 <p>
 
-Nom :
-${data.nom}<br>
+👤 Nom :
+${data.nom || "Aucun"}<br>
 
-Email :
-${data.email}<br>
+📧 Email :
+${data.email || "Aucun"}<br>
 
-Solde Principal :
-${data.solde} HTG<br>
+💰 Solde Principal :
+${data.solde || 0} HTG<br>
 
-HTG Fidélité :
-${data.fidelite} HTG<br>
+🎁 Fidélité :
+${data.fidelite || 0} HTG<br>
 
-Solde Parrainage :
-${data.parrainage} HTG<br>
+🤝 Parrainage :
+${data.parrainage || 0} HTG<br>
 
-Total Investi :
-${data.totalInvesti} HTG<br>
+📈 Total Investi :
+${data.totalInvesti || 0} HTG<br>
 
-Gains Quotidiens :
-${data.gainsQuotidiens} HTG<br>
+💵 Gains Quotidiens :
+${data.gainsQuotidiens || 0} HTG<br>
 
-Plans Actifs :
-${data.plans.length}<br>
+📅 Date :
+${data.dateInscription || "Aucune"}<br>
 
-Compte :
+🔒 Etat :
 ${data.blocked ? "Bloqué" : "Actif"}
 
 </p>
@@ -530,50 +534,42 @@ ${data.blocked ? "Bloqué" : "Actif"}
 <div class="buttons">
 
 <button class="green"
-
-onclick="ajouterArgent(
-'${docu.id}'
-)">
+onclick="addMoney('${docu.id}')">
 
 Ajouter Argent
 
 </button>
 
 <button class="orange"
-
-onclick="retirerArgent(
-'${docu.id}'
-)">
+onclick="removeMoney('${docu.id}')">
 
 Retirer Argent
 
 </button>
 
-<button class="red"
+<button class="yellow"
+onclick="resetPassword('${data.email}')">
 
-onclick="bloquerCompte(
-'${docu.id}'
-)">
+Reset Password
+
+</button>
+
+<button class="red"
+onclick="blockUser('${docu.id}')">
 
 Bloquer
 
 </button>
 
 <button class="blue"
-
-onclick="debloquerCompte(
-'${docu.id}'
-)">
+onclick="unblockUser('${docu.id}')">
 
 Débloquer
 
 </button>
 
 <button class="red"
-
-onclick="supprimerCompte(
-'${docu.id}'
-)">
+onclick="deleteUser('${docu.id}')">
 
 Supprimer
 
@@ -587,150 +583,63 @@ Supprimer
 
             });
 
-            document.getElementById(
-                "totalPlans"
-            ).innerText =
-                totalPlans;
-
         }
 
         async function loadDepots() {
 
-            const querySnapshot =
+            const depots =
                 await getDocs(
                     collection(db, "depotDemandes")
                 );
 
-            document.getElementById(
-                "totalDepots"
-            ).innerText =
-                querySnapshot.size;
+            document
+                .getElementById("totalDepots")
+                .innerText =
+                depots.size;
 
             const container =
-                document.getElementById(
-                    "depotsContainer"
-                );
+                document
+                    .getElementById("depotsContainer");
 
             container.innerHTML = "";
 
-            querySnapshot.forEach((docu) => {
+            depots.forEach((docu) => {
 
                 const data =
                     docu.data();
 
-                container.innerHTML += `
+                if (data.status === "En attente") {
 
-<div class="depot">
+                    container.innerHTML += `
+
+<div class="box">
 
 <p>
 
-UID :
+👤 UID :
 ${data.uid}<br>
 
-Méthode :
+🏦 Méthode :
 ${data.methode}<br>
 
-Montant :
+💰 Montant :
 ${data.montant} HTG<br>
 
-Transaction :
+🧾 Transaction :
 ${data.transaction}<br>
 
-Status :
-${data.status}
+📅 Date :
+${data.date || ""}
 
 </p>
 
 <div class="buttons">
 
 <button class="green"
-
-onclick="validerDepot(
+onclick="validateDepot(
 '${docu.id}',
 '${data.uid}',
 ${data.montant}
-)">
-
-Valider Dépôt
-
-</button>
-
-<button class="red"
-
-onclick="refuserDepot(
-'${docu.id}'
-)">
-
-Refuser
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-            });
-
-        }
-
-        async function loadRetraits() {
-
-            const querySnapshot =
-                await getDocs(
-                    collection(db, "retraits")
-                );
-
-            document.getElementById(
-                "totalRetraits"
-            ).innerText =
-                querySnapshot.size;
-
-            const container =
-                document.getElementById(
-                    "retraitsContainer"
-                );
-
-            container.innerHTML = "";
-
-            querySnapshot.forEach((docu) => {
-
-                const data =
-                    docu.data();
-
-                container.innerHTML += `
-
-<div class="retrait">
-
-<p>
-
-UID :
-${data.uid}<br>
-
-Méthode :
-${data.methode}<br>
-
-Nom :
-${data.nom}<br>
-
-Numéro :
-${data.numero}<br>
-
-Montant :
-${data.montant} HTG<br>
-
-Status :
-${data.status}
-
-</p>
-
-<div class="buttons">
-
-<button class="green"
-
-onclick="validerRetrait(
-'${docu.id}'
 )">
 
 Valider
@@ -738,10 +647,7 @@ Valider
 </button>
 
 <button class="red"
-
-onclick="refuserRetrait(
-'${docu.id}'
-)">
+onclick="refuseDepot('${docu.id}')">
 
 Refuser
 
@@ -753,265 +659,361 @@ Refuser
 
 `;
 
+                }
+
             });
 
         }
 
-        window.ajouterArgent =
+        async function loadRetraits() {
+
+            const retraits =
+                await getDocs(
+                    collection(db, "retraits")
+                );
+
+            document
+                .getElementById("totalRetraits")
+                .innerText =
+                retraits.size;
+
+            const container =
+                document
+                    .getElementById("retraitsContainer");
+
+            container.innerHTML = "";
+
+            retraits.forEach((docu) => {
+
+                const data =
+                    docu.data();
+
+                if (data.status === "En attente") {
+
+                    container.innerHTML += `
+
+<div class="box">
+
+<p>
+
+👤 UID :
+${data.uid}<br>
+
+💸 Méthode :
+${data.methode}<br>
+
+📱 Numéro :
+${data.numero}<br>
+
+💰 Montant :
+${data.montant} HTG<br>
+
+📅 Date :
+${data.date || ""}
+
+</p>
+
+<div class="buttons">
+
+<button class="green"
+onclick="validateRetrait('${docu.id}')">
+
+Valider
+
+</button>
+
+<button class="red"
+onclick="refuseRetrait('${docu.id}')">
+
+Refuser
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+                }
+
+            });
+
+        }
+
+        async function loadHistory() {
+
+            const history =
+                await getDocs(
+                    collection(db, "historique")
+                );
+
+            document
+                .getElementById("totalHistory")
+                .innerText =
+                history.size;
+
+            const container =
+                document
+                    .getElementById("historyContainer");
+
+            container.innerHTML = "";
+
+            history.forEach((docu) => {
+
+                const data =
+                    docu.data();
+
+                container.innerHTML += `
+
+<div class="box">
+
+<p>
+
+📌 Action :
+${data.action}<br>
+
+👤 UID :
+${data.uid}<br>
+
+💰 Montant :
+${data.montant || 0} HTG<br>
+
+📅 Date :
+${data.date}
+
+</p>
+
+</div>
+
+`;
+
+            });
+
+        }
+
+        window.addMoney =
             async function (uid) {
 
                 const montant =
-                    prompt(
-                        "Montant à ajouter"
-                    );
+                    prompt("Montant à ajouter");
 
                 if (!montant) return;
 
-                const userRef =
+                const ref =
                     doc(db, "users", uid);
 
-                const userSnap =
-                    await getDoc(userRef);
+                const snap =
+                    await getDoc(ref);
 
                 const data =
-                    userSnap.data();
+                    snap.data();
 
-                await updateDoc(userRef, {
+                await updateDoc(ref, {
 
                     solde:
-                        Number(data.solde)
+                        Number(data.solde || 0)
                         +
                         Number(montant)
 
                 });
 
-                alert(
-                    "Argent ajouté avec succès."
-                );
+                alert("Argent ajouté.");
 
                 location.reload();
 
             }
 
-        window.retirerArgent =
+        window.removeMoney =
             async function (uid) {
 
                 const montant =
-                    prompt(
-                        "Montant à retirer"
-                    );
+                    prompt("Montant à retirer");
 
                 if (!montant) return;
 
-                const userRef =
+                const ref =
                     doc(db, "users", uid);
 
-                const userSnap =
-                    await getDoc(userRef);
+                const snap =
+                    await getDoc(ref);
 
                 const data =
-                    userSnap.data();
+                    snap.data();
 
-                await updateDoc(userRef, {
+                await updateDoc(ref, {
 
                     solde:
-                        Number(data.solde)
+                        Number(data.solde || 0)
                         -
                         Number(montant)
 
                 });
 
-                alert(
-                    "Argent retiré."
-                );
+                alert("Argent retiré.");
 
                 location.reload();
 
             }
 
-        window.bloquerCompte =
+        window.blockUser =
             async function (uid) {
 
                 await updateDoc(
-
                     doc(db, "users", uid),
-
                     {
-
                         blocked: true
-
                     }
-
                 );
 
-                alert(
-                    "Compte bloqué."
-                );
+                alert("Compte bloqué.");
 
                 location.reload();
 
             }
 
-        window.debloquerCompte =
+        window.unblockUser =
             async function (uid) {
 
                 await updateDoc(
-
                     doc(db, "users", uid),
-
                     {
-
                         blocked: false
-
                     }
-
                 );
 
-                alert(
-                    "Compte débloqué."
-                );
+                alert("Compte débloqué.");
 
                 location.reload();
 
             }
 
-        window.supprimerCompte =
+        window.deleteUser =
             async function (uid) {
 
-                if (
-                    confirm(
-                        "Supprimer ce compte ?"
-                    )
+                await deleteDoc(
+                    doc(db, "users", uid)
+                );
 
-                ) {
+                alert("Utilisateur supprimé.");
 
-                    await deleteDoc(
-                        doc(db, "users", uid)
-                    );
-
-                    alert(
-                        "Compte supprimé."
-                    );
-
-                    location.reload();
-
-                }
+                location.reload();
 
             }
 
-        window.validerDepot =
-            async function (
+        window.validateDepot =
+            async function (id, uid, montant) {
 
-                depotId,
-                uid,
-                montant
-
-            ) {
-
-                const userRef =
+                const ref =
                     doc(db, "users", uid);
 
-                const userSnap =
-                    await getDoc(userRef);
+                const snap =
+                    await getDoc(ref);
 
                 const data =
-                    userSnap.data();
+                    snap.data();
 
-                await updateDoc(userRef, {
+                await updateDoc(ref, {
 
                     solde:
-                        Number(data.solde)
+                        Number(data.solde || 0)
                         +
                         Number(montant)
 
                 });
 
-                await updateDoc(
-
-                    doc(db, "depotDemandes", depotId),
-
+                await addDoc(
+                    collection(db, "historique"),
                     {
-
-                        status: "Validé"
-
+                        action: "Dépôt validé",
+                        uid: uid,
+                        montant: montant,
+                        date: new Date().toLocaleString()
                     }
-
                 );
 
-                alert(
-                    "Dépôt validé."
+                await deleteDoc(
+                    doc(db, "depotDemandes", id)
                 );
+
+                alert("Dépôt validé.");
 
                 location.reload();
 
             }
 
-        window.refuserDepot =
-            async function (depotId) {
+        window.refuseDepot =
+            async function (id) {
 
-                await updateDoc(
-
-                    doc(db, "depotDemandes", depotId),
-
+                await addDoc(
+                    collection(db, "historique"),
                     {
-
-                        status: "Refusé"
-
+                        action: "Dépôt refusé",
+                        uid: "Inconnu",
+                        date: new Date().toLocaleString()
                     }
-
                 );
 
-                alert(
-                    "Dépôt refusé."
+                await deleteDoc(
+                    doc(db, "depotDemandes", id)
                 );
+
+                alert("Dépôt refusé.");
 
                 location.reload();
 
             }
 
-        window.validerRetrait =
-            async function (retraitId) {
+        window.validateRetrait =
+            async function (id) {
 
-                await updateDoc(
-
-                    doc(db, "retraits", retraitId),
-
+                await addDoc(
+                    collection(db, "historique"),
                     {
-
-                        status: "Validé"
-
+                        action: "Retrait validé",
+                        date: new Date().toLocaleString()
                     }
-
                 );
 
-                alert(
-                    "Retrait validé."
+                await deleteDoc(
+                    doc(db, "retraits", id)
                 );
+
+                alert("Retrait validé.");
 
                 location.reload();
 
             }
 
-        window.refuserRetrait =
-            async function (retraitId) {
+        window.refuseRetrait =
+            async function (id) {
 
-                await updateDoc(
-
-                    doc(db, "retraits", retraitId),
-
+                await addDoc(
+                    collection(db, "historique"),
                     {
-
-                        status: "Refusé"
-
+                        action: "Retrait refusé",
+                        date: new Date().toLocaleString()
                     }
-
                 );
 
-                alert(
-                    "Retrait refusé."
+                await deleteDoc(
+                    doc(db, "retraits", id)
                 );
+
+                alert("Retrait refusé.");
 
                 location.reload();
+
+            }
+
+        window.resetPassword =
+            function (email) {
+
+                alert(
+                    "Nouveau mot de passe envoyé à : "
+                    +
+                    email
+                );
 
             }
 
@@ -1030,6 +1032,8 @@ Refuser
         loadDepots();
 
         loadRetraits();
+
+        loadHistory();
 
     </script>
 
