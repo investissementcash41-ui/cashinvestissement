@@ -7,7 +7,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dépôt - CASHINVESTISSEMENT</title>
+    <title>
+        Dépôt - CASHINVESTISSEMENT
+    </title>
 
     <style>
         * {
@@ -20,73 +22,60 @@
         body {
 
             background:
-                linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #7f1d1d);
+                linear-gradient(135deg,
+                    #020617,
+                    #0f172a,
+                    #1e3a8a,
+                    #7f1d1d);
+
+            color: white;
 
             min-height: 100vh;
 
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
             padding: 20px;
-
-            color: white;
 
         }
 
         .container {
 
-            width: 100%;
+            max-width: 700px;
 
-            max-width: 650px;
-
-            background: rgba(255, 255, 255, 0.05);
-
-            border: 1px solid rgba(255, 255, 255, 0.08);
-
-            backdrop-filter: blur(15px);
-
-            padding: 30px;
-
-            border-radius: 25px;
-
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            margin: auto;
 
         }
 
-        .logo {
-
-            font-size: 34px;
-
-            font-weight: bold;
+        .header {
 
             text-align: center;
 
-            margin-bottom: 15px;
+            margin-bottom: 30px;
+
+        }
+
+        .header h1 {
+
+            font-size: 28px;
 
             color: #38bdf8;
 
-            text-shadow: 0 0 15px #38bdf8;
+            margin-bottom: 10px;
 
         }
 
-        .title {
+        .header p {
 
-            text-align: center;
+            font-size: 15px;
 
-            font-size: 22px;
+            color: #d6d6d6;
 
-            margin-bottom: 25px;
-
-            color: #ffd60a;
+            line-height: 28px;
 
         }
 
-        .box {
+        .method {
 
-            background: rgba(255, 255, 255, 0.05);
+            background:
+                rgba(255, 255, 255, 0.05);
 
             padding: 20px;
 
@@ -94,146 +83,90 @@
 
             margin-bottom: 20px;
 
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
 
         }
 
-        .box h3 {
+        .method h2 {
+
+            font-size: 18px;
 
             margin-bottom: 15px;
-
-            font-size: 22px;
 
             color: #38bdf8;
 
         }
 
-        .numero {
+        .method p {
 
-            background: rgba(0, 0, 0, 0.25);
+            font-size: 14px;
 
-            padding: 15px;
-
-            border-radius: 12px;
-
-            margin-top: 15px;
-
-        }
-
-        .numero p {
-
-            margin-top: 8px;
-
-            line-height: 28px;
+            line-height: 30px;
 
             color: #d6d6d6;
-
-            word-break: break-all;
 
         }
 
         .copy-btn {
 
+            margin-top: 15px;
+
+            padding: 12px;
+
             width: 100%;
 
-            padding: 14px;
+            border: none;
+
+            border-radius: 10px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+        }
+
+        .form-box {
+
+            background:
+                rgba(255, 255, 255, 0.05);
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            margin-top: 30px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+        }
+
+        .form-box h2 {
+
+            margin-bottom: 20px;
+
+            font-size: 20px;
+
+            color: #ffffff;
+
+        }
+
+        .input-box {
 
             margin-top: 15px;
 
-            border: none;
-
-            border-radius: 12px;
-
-            background:
-                linear-gradient(90deg, #2563eb, #38bdf8);
-
-            color: white;
-
-            font-size: 16px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-
         }
 
-        .copy-btn:hover {
+        .input-box label {
 
-            transform: scale(1.02);
+            display: block;
 
-        }
-
-        select,
-        input {
-
-            width: 100%;
-
-            padding: 16px;
-
-            margin-top: 18px;
-
-            border: none;
-
-            outline: none;
-
-            border-radius: 14px;
-
-            background: rgba(255, 255, 255, 0.08);
-
-            color: white;
-
-            font-size: 16px;
-
-        }
-
-        select option {
-
-            color: black;
-
-        }
-
-        .send-btn {
-
-            width: 100%;
-
-            padding: 16px;
-
-            margin-top: 22px;
-
-            border: none;
-
-            border-radius: 14px;
-
-            background:
-                linear-gradient(90deg, #16a34a, #22c55e);
-
-            color: white;
-
-            font-size: 17px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-
-        }
-
-        .send-btn:hover {
-
-            transform: scale(1.03);
-
-        }
-
-        .info {
-
-            margin-top: 20px;
-
-            text-align: center;
-
-            line-height: 30px;
+            margin-bottom: 8px;
 
             font-size: 14px;
 
@@ -241,15 +174,91 @@
 
         }
 
-        .footer {
+        .input-box input,
+        .input-box select {
 
-            margin-top: 30px;
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            outline: none;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            color: white;
+
+            font-size: 14px;
+
+        }
+
+        .input-box option {
+
+            color: black;
+
+        }
+
+        .submit-btn {
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(90deg,
+                    #2563eb,
+                    #dc2626);
+
+            color: white;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+        }
+
+        .message {
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(34, 197, 94, 0.15);
+
+            font-size: 14px;
+
+            line-height: 28px;
+
+            display: none;
+
+            color: #bbf7d0;
+
+        }
+
+        footer {
 
             text-align: center;
+
+            margin-top: 40px;
 
             font-size: 13px;
 
             color: #94a3b8;
+
+            line-height: 25px;
 
         }
     </style>
@@ -260,280 +269,348 @@
 
     <div class="container">
 
-        <div class="logo">
+        <div class="header">
 
-            CASHINVESTISSEMENT
+            <h1>
+
+                Dépôt CASHINVESTISSEMENT
+
+            </h1>
+
+            <p>
+
+                Veuillez effectuer votre dépôt avec l’une des méthodes disponibles ci-dessous puis soumettre votre
+                demande de dépôt.
+
+            </p>
 
         </div>
 
-        <div class="title">
+        <div class="method">
 
-            Méthodes de dépôt disponibles
+            <h2>
+
+                MonCash
+
+            </h2>
+
+            <p>
+
+                Numéro :
+                38030255<br>
+
+                Nom :
+                Alan Goergemond Jackson
+
+            </p>
+
+            <button class="copy-btn" onclick="copyText('38030255')">
+
+                Copier le numéro
+
+            </button>
 
         </div>
 
-        <div class="box">
+        <div class="method">
 
-            <h3>🔵 MonCash Digicel</h3>
+            <h2>
 
-            <div class="numero">
+                NatCash
 
-                <p><strong>Numéro :</strong>
-                    +509 4919 3120</p>
+            </h2>
 
-                <p><strong>Nom :</strong>
-                    Willio Semestal</p>
+            <p>
 
-                <button class="copy-btn" onclick="copier('50949193120')">
+                Numéro :
+                42060009<br>
 
-                    Copier le numéro MonCash
+                Nom :
+                Willio SEMESTAL
 
-                </button>
+            </p>
+
+            <button class="copy-btn" onclick="copyText('42060009')">
+
+                Copier le numéro
+
+            </button>
+
+        </div>
+
+        <div class="method">
+
+            <h2>
+
+                Méthodes Internationales
+
+            </h2>
+
+            <p>
+
+                Disponible uniquement pour les clients internationaux.<br><br>
+
+                Méthodes disponibles :<br>
+
+                • Zelle<br>
+
+                • PayPal<br>
+
+                • Uni Transfer (Ria)<br><br>
+
+                Nom du récepteur :<br>
+
+                Trump Alfred Hitchcock<br>
+
+                USA, New York, 6748
+
+            </p>
+
+        </div>
+
+        <div class="form-box">
+
+            <h2>
+
+                Soumettre une demande de dépôt
+
+            </h2>
+
+            <div class="input-box">
+
+                <label>
+
+                    Méthode de dépôt
+
+                </label>
+
+                <select id="methode">
+
+                    <option>
+
+                        MonCash
+
+                    </option>
+
+                    <option>
+
+                        NatCash
+
+                    </option>
+
+                    <option>
+
+                        Zelle
+
+                    </option>
+
+                    <option>
+
+                        PayPal
+
+                    </option>
+
+                    <option>
+
+                        Uni Transfer (Ria)
+
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="input-box">
+
+                <label>
+
+                    Montant envoyé
+
+                </label>
+
+                <input type="number" id="montant" placeholder="Entrez le montant">
+
+            </div>
+
+            <div class="input-box">
+
+                <label>
+
+                    Numéro de transaction
+
+                </label>
+
+                <input type="text" id="transaction" placeholder="Entrez le numéro de transaction">
+
+            </div>
+
+            <button class="submit-btn" onclick="envoyerDemande()">
+
+                Confirmer le dépôt
+
+            </button>
+
+            <div class="message" id="messageBox">
+
+                Votre demande de dépôt a été envoyée avec succès.<br><br>
+
+                Veuillez patienter pendant la vérification de votre transaction.<br><br>
+
+                Après validation par l’administration, le montant sera automatiquement ajouté à votre compte
+                CASHINVESTISSEMENT.
 
             </div>
 
         </div>
 
-        <div class="box">
+        <footer>
 
-            <h3>🟡 NatCash</h3>
+            © 1997 CASHINVESTISSEMENT
 
-            <div class="numero">
+        </footer>
 
-                <p><strong>Numéro :</strong>
-                    +509 4206 0009</p>
+        <script type="module">
 
-                <p><strong>Nom :</strong>
-                    Willio Semestal</p>
+            import { initializeApp }
 
-                <button class="copy-btn" onclick="copier('50942060009')">
+                from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-                    Copier le numéro NatCash
+            import {
 
-                </button>
-
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <h3>🟢 USDT - TRC20</h3>
-
-            <div class="numero">
-
-                <p>
-
-                    <strong>Adresse :</strong><br>
-
-                    TGjFxMnvvHAD8aZGBkVtv3yNuYFRPgLnpM
-
-                </p>
-
-                <p><strong>Réseau :</strong>
-                    TRC20</p>
-
-                <button class="copy-btn" onclick="copier('TGjFxMnvvHAD8aZGBkVtv3yNuYFRPgLnpM')">
-
-                    Copier l’adresse USDT
-
-                </button>
-
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <h3>🟣 USD / MerU</h3>
-
-            <div class="numero">
-
-                <p><strong>Email :</strong>
-                    eglisebetheldepalmisteavin@gmail.com</p>
-
-                <p><strong>Nom :</strong>
-                    jeantilus maniola</p>
-
-                <button class="copy-btn" onclick="copier('eglisebetheldepalmisteavin@gmail.com')">
-
-                    Copier l’email USD
-
-                </button>
-
-            </div>
-
-        </div>
-
-        <select id="methode">
-
-            <option value="">Choisissez une méthode</option>
-
-            <option>MonCash</option>
-
-            <option>NatCash</option>
-
-            <option>USDT</option>
-
-            <option>USD</option>
-
-        </select>
-
-        <input type="number" id="montant" placeholder="Montant du dépôt">
-
-        <input type="text" id="transaction" placeholder="Numéro de transaction">
-
-        <button class="send-btn" onclick="envoyerDemande()">
-
-            Confirmer la demande de dépôt
-
-        </button>
-
-        <div class="info">
-
-            Après avoir effectué votre dépôt,
-            veuillez confirmer votre demande
-            et envoyer votre capture d’écran
-            à l’administrateur WhatsApp afin
-            de finaliser la validation de votre dépôt.
-
-        </div>
-
-        <div class="footer">
-
-            CASHINVESTISSEMENT © 2026
-
-        </div>
-
-    </div>
-
-    <script type="module">
-
-        import { initializeApp }
-
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-        import {
-
-            getAuth,
-            onAuthStateChanged
-
-        }
-
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-        import {
-
-            getFirestore,
-            collection,
-            addDoc
-
-        }
-
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-        const firebaseConfig = {
-
-            apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
-            authDomain: "cashinvestissement-f8104.firebaseapp.com",
-            projectId: "cashinvestissement-f8104",
-            storageBucket: "cashinvestissement-f8104.firebasestorage.app",
-            messagingSenderId: "645010004253",
-            appId: "1:645010004253:web:e885536adcc0f1966e69f4"
-
-        };
-
-        const app = initializeApp(firebaseConfig);
-
-        const auth = getAuth(app);
-
-        const db = getFirestore(app);
-
-        let currentUser = null;
-
-        onAuthStateChanged(auth, (user) => {
-
-            if (user) {
-
-                currentUser = user;
-
-            } else {
-
-                window.location.href =
-                    "login.html";
+                getFirestore,
+                collection,
+                addDoc
 
             }
 
-        });
+                from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-        window.copier = function (text) {
+            import {
 
-            navigator.clipboard.writeText(text);
+                getAuth,
+                onAuthStateChanged
 
-            alert(
-                "Informations copiées avec succès ✅"
-            );
+            }
 
-        }
+                from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-        window.envoyerDemande =
-            async function () {
+            const firebaseConfig = {
 
-                const methode =
-                    document.getElementById("methode").value;
+                apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
+                authDomain: "cashinvestissement-f8104.firebaseapp.com",
+                projectId: "cashinvestissement-f8104",
+                storageBucket: "cashinvestissement-f8104.firebasestorage.app",
+                messagingSenderId: "645010004253",
+                appId: "1:645010004253:web:e885536adcc0f1966e69f4"
 
-                const montant =
-                    document.getElementById("montant").value;
+            };
 
-                const transaction =
-                    document.getElementById("transaction").value;
+            const app =
+                initializeApp(firebaseConfig);
 
-                if (methode == "" || montant == "" || transaction == "") {
+            const db =
+                getFirestore(app);
 
-                    alert(
-                        "Veuillez remplir tous les champs."
-                    );
+            const auth =
+                getAuth(app);
 
-                    return;
+            let currentUser = null;
+
+            onAuthStateChanged(auth, (user) => {
+
+                if (user) {
+
+                    currentUser = user;
+
+                } else {
+
+                    window.location.href =
+                        "login.html";
 
                 }
 
-                await addDoc(
+            });
 
-                    collection(db, "depotDemandes"),
+            window.copyText =
+                function (text) {
 
-                    {
+                    navigator.clipboard.writeText(text);
 
-                        uid: currentUser.uid,
+                    alert(
+                        "Copié avec succès."
+                    );
 
-                        email: currentUser.email,
+                }
 
-                        methode: methode,
+            window.envoyerDemande =
+                async function () {
 
-                        montant: Number(montant),
+                    const methode =
+                        document.getElementById(
+                            "methode"
+                        ).value;
 
-                        transaction: transaction,
+                    const montant =
+                        document.getElementById(
+                            "montant"
+                        ).value;
 
-                        statut: "En attente",
+                    const transaction =
+                        document.getElementById(
+                            "transaction"
+                        ).value;
 
-                        date: new Date()
+                    if (
+                        montant === "" ||
+                        transaction === ""
+                    ) {
+
+                        alert(
+                            "Veuillez remplir tous les champs."
+                        );
+
+                        return;
 
                     }
 
-                );
+                    await addDoc(
 
-                alert(
+                        collection(db, "depotDemandes"),
 
-                    "Votre demande de dépôt a été envoyée avec succès ✅\n\nVeuillez maintenant contacter l’administrateur WhatsApp afin d’envoyer votre capture d’écran pour finaliser la validation."
+                        {
 
-                );
+                            uid: currentUser.uid,
 
-                window.location.href =
-                    "https://wa.me/50931465733";
+                            methode: methode,
 
-            }
+                            montant: montant,
 
-    </script>
+                            transaction: transaction,
+
+                            status: "En attente",
+
+                            date: new Date()
+
+                        }
+
+                    );
+
+                    document.getElementById(
+                        "messageBox"
+                    ).style.display =
+                        "block";
+
+                    window.open(
+
+                        "https://wa.me/?text=Bonjour%20administrateur,%20je%20viens%20d’effectuer%20un%20dépôt%20sur%20CASHINVESTISSEMENT.",
+
+                        "_blank"
+
+                    );
+
+                }
+
+        </script>
 
 </body>
 

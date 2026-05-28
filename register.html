@@ -7,7 +7,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Inscription - CASHINVESTISSEMENT</title>
+    <title>
+        Inscription - CASHINVESTISSEMENT
+    </title>
 
     <style>
         * {
@@ -20,7 +22,11 @@
         body {
 
             background:
-                linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #7f1d1d);
+                linear-gradient(135deg,
+                    #020617,
+                    #0f172a,
+                    #1e3a8a,
+                    #7f1d1d);
 
             min-height: 100vh;
 
@@ -40,19 +46,22 @@
 
             width: 100%;
 
-            max-width: 520px;
+            max-width: 500px;
 
-            background: rgba(255, 255, 255, 0.05);
+            background:
+                rgba(255, 255, 255, 0.05);
 
-            padding: 40px;
+            padding: 35px;
 
             border-radius: 25px;
 
-            border: 1px solid rgba(255, 255, 255, 0.08);
-
             backdrop-filter: blur(15px);
 
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            box-shadow:
+                0 0 30px rgba(0, 0, 0, 0.4);
 
         }
 
@@ -60,7 +69,7 @@
 
             text-align: center;
 
-            font-size: 34px;
+            font-size: 26px;
 
             font-weight: bold;
 
@@ -68,62 +77,85 @@
 
             color: #38bdf8;
 
-            text-shadow: 0 0 15px #38bdf8;
-
         }
 
         .title {
 
             text-align: center;
 
-            font-size: 24px;
+            font-size: 20px;
 
-            margin-bottom: 30px;
+            margin-bottom: 25px;
 
-            color: #ffd60a;
+            color: #ffffff;
 
         }
 
-        input {
+        .input-box {
+
+            margin-top: 18px;
+
+        }
+
+        .input-box label {
+
+            font-size: 14px;
+
+            color: #d6d6d6;
+
+            display: block;
+
+            margin-bottom: 8px;
+
+        }
+
+        .input-box input {
 
             width: 100%;
 
-            padding: 16px;
-
-            margin-top: 18px;
+            padding: 15px;
 
             border: none;
 
             outline: none;
 
-            border-radius: 14px;
+            border-radius: 12px;
 
-            background: rgba(255, 255, 255, 0.08);
+            background:
+                rgba(255, 255, 255, 0.08);
 
             color: white;
 
-            font-size: 16px;
+            font-size: 15px;
 
         }
 
-        button {
+        .input-box input::placeholder {
+
+            color: #94a3b8;
+
+        }
+
+        .register-btn {
 
             width: 100%;
 
-            padding: 16px;
+            padding: 15px;
 
             margin-top: 25px;
 
             border: none;
 
-            border-radius: 14px;
+            border-radius: 12px;
 
             background:
-                linear-gradient(90deg, #dc2626, #f59e0b);
+                linear-gradient(90deg,
+                    #2563eb,
+                    #dc2626);
 
             color: white;
 
-            font-size: 17px;
+            font-size: 15px;
 
             font-weight: bold;
 
@@ -133,41 +165,79 @@
 
         }
 
-        button:hover {
+        .register-btn:hover {
 
             transform: scale(1.03);
 
         }
 
-        .login {
+        .links {
 
-            margin-top: 25px;
+            margin-top: 20px;
 
             text-align: center;
 
-            font-size: 15px;
-
         }
 
-        .login a {
+        .links a {
 
-            color: #38bdf8;
+            font-size: 14px;
 
             text-decoration: none;
 
-            font-weight: bold;
+            color: #38bdf8;
+
+        }
+
+        .error {
+
+            background:
+                rgba(220, 38, 38, 0.15);
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            display: none;
+
+            color: #fecaca;
+
+        }
+
+        .success {
+
+            background:
+                rgba(34, 197, 94, 0.15);
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            display: none;
+
+            color: #bbf7d0;
 
         }
 
         .footer {
 
-            margin-top: 30px;
-
             text-align: center;
+
+            margin-top: 25px;
 
             font-size: 13px;
 
             color: #94a3b8;
+
+            line-height: 25px;
 
         }
     </style>
@@ -190,25 +260,85 @@
 
         </div>
 
-        <input type="text" id="nom" placeholder="Nom complet">
+        <div class="error" id="errorBox">
 
-        <input type="email" id="email" placeholder="Adresse email">
+        </div>
 
-        <input type="password" id="password" placeholder="Mot de passe">
+        <div class="success" id="successBox">
 
-        <button onclick="register()">
+        </div>
+
+        <div class="input-box">
+
+            <label>
+
+                Nom complet
+
+            </label>
+
+            <input type="text" id="nom" placeholder="Entrez votre nom complet">
+
+        </div>
+
+        <div class="input-box">
+
+            <label>
+
+                Adresse email
+
+            </label>
+
+            <input type="email" id="email" placeholder="Entrez votre email">
+
+        </div>
+
+        <div class="input-box">
+
+            <label>
+
+                Mot de passe
+
+            </label>
+
+            <input type="password" id="password" placeholder="Entrez votre mot de passe">
+
+        </div>
+
+        <div class="input-box">
+
+            <label>
+
+                Confirmer le mot de passe
+
+            </label>
+
+            <input type="password" id="confirmPassword" placeholder="Confirmez votre mot de passe">
+
+        </div>
+
+        <div class="input-box">
+
+            <label>
+
+                Code de parrainage (optionnel)
+
+            </label>
+
+            <input type="text" id="referral" placeholder="Entrez un code de parrainage">
+
+        </div>
+
+        <button class="register-btn" onclick="register()">
 
             Créer mon compte
 
         </button>
 
-        <div class="login">
-
-            Vous avez déjà un compte ?
+        <div class="links">
 
             <a href="login.html">
 
-                Connexion
+                J’ai déjà un compte
 
             </a>
 
@@ -216,7 +346,10 @@
 
         <div class="footer">
 
-            CASHINVESTISSEMENT © 2026
+            Bonus de bienvenue :
+            100 HTG de fidélité offerts après inscription.<br><br>
+
+            © 1997 CASHINVESTISSEMENT
 
         </div>
 
@@ -248,6 +381,7 @@
             from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
         const firebaseConfig = {
+
             apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
             authDomain: "cashinvestissement-f8104.firebaseapp.com",
             projectId: "cashinvestissement-f8104",
@@ -255,86 +389,167 @@
             messagingSenderId: "645010004253",
             appId: "1:645010004253:web:e885536adcc0f1966e69f4"
 
-
         };
 
-        const app = initializeApp(firebaseConfig);
+        const app =
+            initializeApp(firebaseConfig);
 
-        const auth = getAuth(app);
+        const auth =
+            getAuth(app);
 
-        const db = getFirestore(app);
+        const db =
+            getFirestore(app);
 
-        console.log("Firebase connecté avec succès 🔥");
+        function showError(message) {
 
-        window.register = async function () {
+            const box =
+                document.getElementById("errorBox");
 
-            const nom =
-                document.getElementById("nom").value;
+            box.style.display = "block";
 
-            const email =
-                document.getElementById("email").value;
+            box.innerText = message;
 
-            const password =
-                document.getElementById("password").value;
+            setTimeout(() => {
 
-            if (nom == "" || email == "" || password == "") {
+                box.style.display = "none";
 
-                alert(
-                    "Veuillez remplir tous les champs."
-                );
+            }, 4000);
 
-                return;
+        }
 
-            }
+        function showSuccess(message) {
 
-            try {
+            const box =
+                document.getElementById("successBox");
 
-                const userCredential =
-                    await createUserWithEmailAndPassword(
+            box.style.display = "block";
 
-                        auth,
-                        email,
-                        password
+            box.innerText = message;
+
+            setTimeout(() => {
+
+                box.style.display = "none";
+
+            }, 4000);
+
+        }
+
+        window.register =
+            async function () {
+
+                const nom =
+                    document.getElementById("nom").value;
+
+                const email =
+                    document.getElementById("email").value;
+
+                const password =
+                    document.getElementById("password").value;
+
+                const confirmPassword =
+                    document.getElementById("confirmPassword").value;
+
+                const referral =
+                    document.getElementById("referral").value;
+
+                if (
+                    nom === "" ||
+                    email === "" ||
+                    password === "" ||
+                    confirmPassword === ""
+                ) {
+
+                    showError(
+                        "Veuillez remplir tous les champs."
+                    );
+
+                    return;
+
+                }
+
+                if (password !== confirmPassword) {
+
+                    showError(
+                        "Les mots de passe ne correspondent pas."
+                    );
+
+                    return;
+
+                }
+
+                try {
+
+                    const userCredential =
+                        await createUserWithEmailAndPassword(
+
+                            auth,
+                            email,
+                            password
+
+                        );
+
+                    const user =
+                        userCredential.user;
+
+                    const referralCode =
+                        user.uid.substring(0, 6).toUpperCase();
+
+                    await setDoc(
+
+                        doc(db, "users", user.uid),
+
+                        {
+
+                            nom: nom,
+
+                            email: email,
+
+                            uid: user.uid,
+
+                            solde: 0,
+
+                            fidelite: 100,
+
+                            parrainage: 0,
+
+                            totalInvesti: 0,
+
+                            gainsQuotidiens: 0,
+
+                            blocked: false,
+
+                            referralCode: referralCode,
+
+                            referent: referral || "",
+
+                            plans: [],
+
+                            dateCreation: new Date()
+
+                        }
 
                     );
 
-                const user =
-                    userCredential.user;
+                    showSuccess(
+                        "Compte créé avec succès."
+                    );
 
-                await setDoc(
+                    setTimeout(() => {
 
-                    doc(db, "users", user.uid),
+                        window.location.href =
+                            "dashboard.html";
 
-                    {
+                    }, 1500);
 
-                        nom: nom,
+                } catch (error) {
 
-                        email: email,
+                    showError(
+                        "Impossible de créer le compte."
+                    );
 
-                        solde: 0,
-
-                        dateCreation: new Date()
-
-                    }
-
-                );
-
-                alert(
-                    "Compte créé avec succès ✅"
-                );
-
-                window.location.href =
-                    "dashboard.html";
-
-            } catch (error) {
-
-                alert(
-                    "Impossible de créer le compte."
-                );
+                }
 
             }
-
-        }
 
     </script>
 

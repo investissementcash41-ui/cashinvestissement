@@ -7,7 +7,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Connexion - CASHINVESTISSEMENT</title>
+    <title>
+        Connexion - CASHINVESTISSEMENT
+    </title>
 
     <style>
         * {
@@ -20,7 +22,11 @@
         body {
 
             background:
-                linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #7f1d1d);
+                linear-gradient(135deg,
+                    #020617,
+                    #0f172a,
+                    #1e3a8a,
+                    #7f1d1d);
 
             min-height: 100vh;
 
@@ -40,19 +46,22 @@
 
             width: 100%;
 
-            max-width: 500px;
+            max-width: 450px;
 
-            background: rgba(255, 255, 255, 0.05);
+            background:
+                rgba(255, 255, 255, 0.05);
 
-            padding: 40px;
+            padding: 35px;
 
             border-radius: 25px;
 
-            border: 1px solid rgba(255, 255, 255, 0.08);
-
             backdrop-filter: blur(15px);
 
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            box-shadow:
+                0 0 30px rgba(0, 0, 0, 0.4);
 
         }
 
@@ -60,7 +69,7 @@
 
             text-align: center;
 
-            font-size: 34px;
+            font-size: 26px;
 
             font-weight: bold;
 
@@ -68,62 +77,85 @@
 
             color: #38bdf8;
 
-            text-shadow: 0 0 15px #38bdf8;
-
         }
 
         .title {
 
             text-align: center;
 
-            font-size: 24px;
+            font-size: 20px;
 
-            margin-bottom: 30px;
+            margin-bottom: 25px;
 
-            color: #ffd60a;
+            color: #ffffff;
 
         }
 
-        input {
+        .input-box {
+
+            margin-top: 18px;
+
+        }
+
+        .input-box label {
+
+            font-size: 14px;
+
+            color: #d6d6d6;
+
+            display: block;
+
+            margin-bottom: 8px;
+
+        }
+
+        .input-box input {
 
             width: 100%;
 
-            padding: 16px;
-
-            margin-top: 18px;
+            padding: 15px;
 
             border: none;
 
             outline: none;
 
-            border-radius: 14px;
+            border-radius: 12px;
 
-            background: rgba(255, 255, 255, 0.08);
+            background:
+                rgba(255, 255, 255, 0.08);
 
             color: white;
 
-            font-size: 16px;
+            font-size: 15px;
 
         }
 
-        button {
+        .input-box input::placeholder {
+
+            color: #94a3b8;
+
+        }
+
+        .login-btn {
 
             width: 100%;
 
-            padding: 16px;
+            padding: 15px;
 
             margin-top: 25px;
 
             border: none;
 
-            border-radius: 14px;
+            border-radius: 12px;
 
             background:
-                linear-gradient(90deg, #2563eb, #38bdf8);
+                linear-gradient(90deg,
+                    #2563eb,
+                    #dc2626);
 
             color: white;
 
-            font-size: 17px;
+            font-size: 15px;
 
             font-weight: bold;
 
@@ -133,41 +165,87 @@
 
         }
 
-        button:hover {
+        .login-btn:hover {
 
             transform: scale(1.03);
 
         }
 
-        .register {
+        .links {
 
-            margin-top: 25px;
+            margin-top: 20px;
 
-            text-align: center;
+            display: flex;
 
-            font-size: 15px;
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
 
         }
 
-        .register a {
+        .links a {
 
-            color: #ffd60a;
+            font-size: 14px;
 
             text-decoration: none;
 
-            font-weight: bold;
+            color: #38bdf8;
 
         }
 
         .footer {
 
-            margin-top: 30px;
-
             text-align: center;
+
+            margin-top: 25px;
 
             font-size: 13px;
 
             color: #94a3b8;
+
+            line-height: 25px;
+
+        }
+
+        .error {
+
+            background:
+                rgba(220, 38, 38, 0.15);
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            display: none;
+
+            color: #fecaca;
+
+        }
+
+        .success {
+
+            background:
+                rgba(34, 197, 94, 0.15);
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            display: none;
+
+            color: #bbf7d0;
 
         }
     </style>
@@ -190,19 +268,51 @@
 
         </div>
 
-        <input type="email" id="email" placeholder="Adresse email">
+        <div class="error" id="errorBox">
 
-        <input type="password" id="password" placeholder="Mot de passe">
+        </div>
 
-        <button onclick="login()">
+        <div class="success" id="successBox">
+
+        </div>
+
+        <div class="input-box">
+
+            <label>
+
+                Adresse email
+
+            </label>
+
+            <input type="email" id="email" placeholder="Entrez votre email">
+
+        </div>
+
+        <div class="input-box">
+
+            <label>
+
+                Mot de passe
+
+            </label>
+
+            <input type="password" id="password" placeholder="Entrez votre mot de passe">
+
+        </div>
+
+        <button class="login-btn" onclick="login()">
 
             Se connecter
 
         </button>
 
-        <div class="register">
+        <div class="links">
 
-            Vous n’avez pas de compte ?
+            <a href="#" onclick="forgotPassword()">
+
+                Mot de passe oublié ?
+
+            </a>
 
             <a href="register.html">
 
@@ -214,7 +324,9 @@
 
         <div class="footer">
 
-            CASHINVESTISSEMENT © 2026
+            © 1997 CASHINVESTISSEMENT<br>
+
+            Plateforme internationale d’investissement.
 
         </div>
 
@@ -229,11 +341,22 @@
         import {
 
             getAuth,
-            signInWithEmailAndPassword
+            signInWithEmailAndPassword,
+            sendPasswordResetEmail
 
         }
 
             from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        import {
+
+            getFirestore,
+            doc,
+            getDoc
+
+        }
+
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
         const firebaseConfig = {
 
@@ -246,56 +369,160 @@
 
         };
 
-        const app = initializeApp(firebaseConfig);
+        const app =
+            initializeApp(firebaseConfig);
 
-        const auth = getAuth(app);
+        const auth =
+            getAuth(app);
 
-        console.log("Firebase connecté avec succès 🔥");
+        const db =
+            getFirestore(app);
 
-        window.login = async function () {
+        function showError(message) {
 
-            const email =
-                document.getElementById("email").value;
+            const box =
+                document.getElementById("errorBox");
 
-            const password =
-                document.getElementById("password").value;
+            box.style.display = "block";
 
-            if (email == "" || password == "") {
+            box.innerText = message;
 
-                alert(
-                    "Veuillez remplir tous les champs."
-                );
+            setTimeout(() => {
 
-                return;
+                box.style.display = "none";
 
-            }
-
-            try {
-
-                await signInWithEmailAndPassword(
-
-                    auth,
-                    email,
-                    password
-
-                );
-
-                alert(
-                    "Connexion réussie ✅"
-                );
-
-                window.location.href =
-                    "dashboard.html";
-
-            } catch (error) {
-
-                alert(
-                    "Email ou mot de passe incorrect."
-                );
-
-            }
+            }, 4000);
 
         }
+
+        function showSuccess(message) {
+
+            const box =
+                document.getElementById("successBox");
+
+            box.style.display = "block";
+
+            box.innerText = message;
+
+            setTimeout(() => {
+
+                box.style.display = "none";
+
+            }, 4000);
+
+        }
+
+        window.login =
+            async function () {
+
+                const email =
+                    document.getElementById("email").value;
+
+                const password =
+                    document.getElementById("password").value;
+
+                if (email === "" || password === "") {
+
+                    showError(
+                        "Veuillez remplir tous les champs."
+                    );
+
+                    return;
+
+                }
+
+                try {
+
+                    const userCredential =
+                        await signInWithEmailAndPassword(
+
+                            auth,
+                            email,
+                            password
+
+                        );
+
+                    const user =
+                        userCredential.user;
+
+                    const userRef =
+                        doc(db, "users", user.uid);
+
+                    const userSnap =
+                        await getDoc(userRef);
+
+                    if (userSnap.exists()) {
+
+                        const data =
+                            userSnap.data();
+
+                        if (data.blocked === true) {
+
+                            showError(
+                                "Votre compte a été bloqué."
+                            );
+
+                            return;
+
+                        }
+
+                    }
+
+                    showSuccess(
+                        "Connexion réussie."
+                    );
+
+                    setTimeout(() => {
+
+                        window.location.href =
+                            "dashboard.html";
+
+                    }, 1500);
+
+                } catch (error) {
+
+                    showError(
+                        "Email ou mot de passe incorrect."
+                    );
+
+                }
+
+            }
+
+        window.forgotPassword =
+            async function () {
+
+                const email =
+                    prompt(
+                        "Entrez votre adresse email."
+                    );
+
+                if (!email) {
+
+                    return;
+
+                }
+
+                try {
+
+                    await sendPasswordResetEmail(
+                        auth,
+                        email
+                    );
+
+                    showSuccess(
+                        "Un lien de réinitialisation a été envoyé sur votre email."
+                    );
+
+                } catch (error) {
+
+                    showError(
+                        "Impossible d’envoyer l’email."
+                    );
+
+                }
+
+            }
 
     </script>
 

@@ -7,7 +7,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dashboard - CASHINVESTISSEMENT</title>
+    <title>
+        Dashboard - CASHINVESTISSEMENT
+    </title>
 
     <style>
         * {
@@ -20,13 +22,17 @@
         body {
 
             background:
-                linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #7f1d1d);
+                linear-gradient(135deg,
+                    #020617,
+                    #0f172a,
+                    #1e3a8a,
+                    #7f1d1d);
+
+            color: white;
 
             min-height: 100vh;
 
             padding: 20px;
-
-            color: white;
 
         }
 
@@ -40,84 +46,157 @@
 
             margin-bottom: 25px;
 
+            flex-wrap: wrap;
+
+            gap: 15px;
+
         }
 
         .logo {
 
-            font-size: 28px;
+            font-size: 24px;
 
             font-weight: bold;
 
             color: #38bdf8;
 
-            text-shadow: 0 0 15px #38bdf8;
-
         }
 
         .logout {
 
-            padding: 13px 20px;
+            padding: 12px 20px;
 
             border: none;
 
-            border-radius: 15px;
+            border-radius: 10px;
 
-            background:
-                linear-gradient(90deg, #dc2626, #f59e0b);
+            background: #dc2626;
 
             color: white;
 
-            font-size: 13px;
-
-            font-weight: bold;
+            font-size: 14px;
 
             cursor: pointer;
 
-            transition: 0.3s;
-
         }
 
-        .logout:hover {
+        .cards {
 
-            transform: scale(1.03);
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+
+            margin-bottom: 30px;
 
         }
 
         .card {
 
-            background: rgba(255, 255, 255, 0.05);
+            background:
+                rgba(255, 255, 255, 0.05);
 
-            padding: 23px;
+            padding: 20px;
 
-            border-radius: 24px;
+            border-radius: 18px;
 
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
 
-            backdrop-filter: blur(15px);
-
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-
-            margin-bottom: 25px;
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
 
         }
 
-        .balance-title {
+        .card h3 {
 
-            font-size: 18px;
+            font-size: 15px;
 
             color: #d6d6d6;
 
+            margin-bottom: 10px;
+
         }
 
-        .balance {
+        .card h2 {
 
-            font-size: 40px;
+            font-size: 24px;
 
-            font-weight: bold;
+            color: #38bdf8;
 
-            margin-top: 12px;
+        }
 
-            color: #22c55e;
+        .section-title {
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+
+            margin-top: 20px;
+
+            color: #ffffff;
+
+        }
+
+        .ref-box {
+
+            background:
+                rgba(255, 255, 255, 0.05);
+
+            padding: 20px;
+
+            border-radius: 18px;
+
+            margin-bottom: 30px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+        }
+
+        .ref-box input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 15px;
+
+            border: none;
+
+            outline: none;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            color: white;
+
+            font-size: 14px;
+
+        }
+
+        .ref-box button {
+
+            margin-top: 15px;
+
+            padding: 13px;
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 14px;
+
+            cursor: pointer;
 
         }
 
@@ -125,152 +204,161 @@
 
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns:
+                1fr 1fr;
 
-            gap: 14px;
+            gap: 15px;
 
-            margin-top: 19px;
+            margin-bottom: 30px;
 
         }
 
-        .btn {
+        .actions a {
 
-            padding: 16px;
+            text-decoration: none;
 
-            border: none;
+            padding: 15px;
 
-            border-radius: 15px;
+            border-radius: 12px;
 
-            font-size: 16px;
+            text-align: center;
+
+            font-size: 15px;
 
             font-weight: bold;
 
             color: white;
-
-            cursor: pointer;
-
-            transition: 0.3s;
 
         }
 
         .deposit {
 
-            background:
-                linear-gradient(90deg, #2563eb, #38bdf8);
+            background: #2563eb;
 
         }
 
         .withdraw {
 
-            background:
-                linear-gradient(90deg, #dc2626, #f59e0b);
-
-        }
-
-        .btn:hover {
-
-            transform: scale(1.03);
-
-        }
-
-        .title {
-
-            font-size: 28px;
-
-            margin-bottom: 20px;
-
-            color: #ffd60a;
+            background: #dc2626;
 
         }
 
         .plan {
 
-            background: rgba(255, 255, 255, 0.05);
+            background:
+                rgba(255, 255, 255, 0.05);
 
-            padding: 25px;
+            padding: 20px;
 
-            border-radius: 20px;
+            border-radius: 18px;
 
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 20px;
 
-            margin-top: 20px;
-
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
 
         }
 
-        .plan h3 {
+        .plan h2 {
 
-            font-size: 24px;
-
-            color: #38bdf8;
+            font-size: 18px;
 
             margin-bottom: 15px;
+
+            color: #38bdf8;
 
         }
 
         .plan p {
 
-            line-height: 32px;
+            font-size: 14px;
 
-            font-size: 16px;
+            line-height: 28px;
 
-            color: #e2e8f0;
+            color: #d6d6d6;
 
         }
 
-        .buy {
+        .plan button {
 
             width: 100%;
 
-            padding: 16px;
+            padding: 14px;
+
+            margin-top: 18px;
 
             border: none;
 
-            border-radius: 14px;
-
-            margin-top: 20px;
+            border-radius: 10px;
 
             background:
-                linear-gradient(90deg, #16a34a, #22c55e);
+                linear-gradient(90deg,
+                    #2563eb,
+                    #dc2626);
 
             color: white;
 
-            font-size: 16px;
-
-            font-weight: bold;
+            font-size: 14px;
 
             cursor: pointer;
 
-            transition: 0.3s;
+        }
+
+        .active-plan {
+
+            background:
+                rgba(34, 197, 94, 0.12);
+
+            padding: 18px;
+
+            border-radius: 15px;
+
+            margin-bottom: 15px;
+
+            border:
+                1px solid rgba(34, 197, 94, 0.2);
 
         }
 
-        .buy:hover {
+        .active-plan h3 {
 
-            transform: scale(1.02);
+            margin-bottom: 12px;
+
+            color: #22c55e;
 
         }
 
-        .days {
-
-            margin-top: 12px;
-
-            color: #ffd60a;
+        .active-plan p {
 
             font-size: 14px;
 
+            line-height: 28px;
+
+            color: #d6d6d6;
+
         }
 
-        .footer {
+        footer {
 
             text-align: center;
 
-            margin-top: 35px;
+            margin-top: 40px;
 
-            font-size: 14px;
+            font-size: 13px;
 
             color: #94a3b8;
+
+            line-height: 25px;
+
+        }
+
+        @media(max-width:768px) {
+
+            .actions {
+
+                grid-template-columns: 1fr;
+
+            }
 
         }
     </style>
@@ -295,251 +383,173 @@
 
     </div>
 
-    <div class="card">
+    <div class="cards">
 
-        <div class="balance-title">
+        <div class="card">
 
-            Solde principal
+            <h3>
+
+                Solde Principal
+
+            </h3>
+
+            <h2 id="solde">
+
+                0 HTG
+
+            </h2>
 
         </div>
 
-        <div class="balance" id="solde">
+        <div class="card">
 
-            0 HTG
+            <h3>
+
+                HTG de Fidélité
+
+            </h3>
+
+            <h2 id="fidelite">
+
+                100 HTG
+
+            </h2>
 
         </div>
 
-        <div class="actions">
+        <div class="card">
 
-            <button class="btn deposit" onclick="window.location.href='deposit.html'">
+            <h3>
 
-                Dépôt
+                Solde Parrainage
 
-            </button>
+            </h3>
 
-            <button class="btn withdraw" onclick="window.location.href='withdraw.html'">
+            <h2 id="parrainage">
 
-                Retrait
+                0 HTG
 
-            </button>
+            </h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+
+                Total Investi
+
+            </h3>
+
+            <h2 id="totalInvesti">
+
+                0 HTG
+
+            </h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+
+                Gains Quotidiens
+
+            </h3>
+
+            <h2 id="gainsQuotidiens">
+
+                0 HTG
+
+            </h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+
+                Plans Actifs
+
+            </h3>
+
+            <h2 id="plansActifs">
+
+                0
+
+            </h2>
 
         </div>
 
     </div>
 
-    <h2 class="title">
+    <div class="ref-box">
 
-        Plans d’investissement
+        <h3>
+
+            Votre code de parrainage
+
+        </h3>
+
+        <input type="text" id="refCode" readonly>
+
+        <h3 style="margin-top:20px;">
+
+            Votre lien de parrainage
+
+        </h3>
+
+        <input type="text" id="refLink" readonly>
+
+        <button onclick="copierLien()">
+
+            Copier le lien
+
+        </button>
+
+    </div>
+
+    <div class="actions">
+
+        <a href="deposit.html" class="deposit">
+
+            Dépôt
+
+        </a>
+
+        <a href="withdraw.html" class="withdraw">
+
+            Retrait
+
+        </a>
+
+    </div>
+
+    <h2 class="section-title">
+
+        Mes Plans Actifs
 
     </h2>
 
-    <div class="plan">
-
-        <h3>PLAN STARTER</h3>
-
-        <p>
-
-            Montant : 1 500 HTG<br>
-
-            Durée : 300 jours<br>
-
-            Profit quotidien : 4%
-
-        </p>
-
-        <button class="buy" onclick="acheterPlan(1500,'PLAN STARTER')">
-
-            Acheter ce plan
-
-        </button>
-
-        <div class="days">
-
-            Jours restants : 300
-
-        </div>
+    <div id="activePlans">
 
     </div>
 
-    <div class="plan">
+    <h2 class="section-title">
 
-        <h3>PLAN SILVER</h3>
-
-        <p>
-
-            Montant : 5 000 HTG<br>
-
-            Durée : 300 jours<br>
-
-            Profit quotidien : 4%
-
-        </p>
-
-        <button class="buy" onclick="acheterPlan(5000,'PLAN SILVER')">
-
-            Acheter ce plan
-
-        </button>
-
-        <div class="days">
-
-            Jours restants : 300
-
-        </div>
-
-    </div>
-
-    <div class="plan">
-
-        <h3>PLAN GOLD</h3>
-
-        <p>
-
-            Montant : 15 000 HTG<br>
-
-            Durée : 300 jours<br>
-
-            Profit quotidien : 4%
-
-        </p>
-
-        <button class="buy" onclick="acheterPlan(15000,'PLAN GOLD')">
-
-            Acheter ce plan
-
-        </button>
-
-        <div class="days">
-
-            Jours restants : 300
-
-        </div>
-
-    </div>
-
-    <h2 class="title">
-
-        Plans Professionnels
+        Plans Disponibles
 
     </h2>
 
-    <div class="plan">
-
-        <h3>PLAN BUSINESS</h3>
-
-        <p>
-
-            Montant : 50 000 HTG<br>
-
-            Durée : 60 jours<br>
-
-            Profit quotidien : 4%
-
-        </p>
-
-        <button class="buy" onclick="acheterPlan(50000,'PLAN BUSINESS')">
-
-            Acheter ce plan
-
-        </button>
-
-        <div class="days">
-
-            Jours restants : 60
-
-        </div>
+    <div id="plansContainer">
 
     </div>
 
-    <div class="plan">
+    <footer>
 
-        <h3>PLAN PREMIUM</h3>
+        © 1997 CASHINVESTISSEMENT
 
-        <p>
-
-            Montant : 75 000 HTG<br>
-
-            Durée : 60 jours<br>
-
-            Profit quotidien : 4%
-
-        </p>
-
-        <button class="buy" onclick="acheterPlan(75000,'PLAN PREMIUM')">
-
-            Acheter ce plan
-
-        </button>
-
-        <div class="days">
-
-            Jours restants : 60
-
-        </div>
-
-    </div>
-
-    <div class="plan">
-
-        <h3>PLAN VIP</h3>
-
-        <p>
-
-            Montant : 100 000 HTG<br>
-
-            Durée : 60 jours<br>
-
-            Profit quotidien : 4%
-
-        </p>
-
-        <button class="buy" onclick="acheterPlan(100000,'PLAN VIP')">
-
-            Acheter ce plan
-
-        </button>
-
-        <div class="days">
-
-            Jours restants : 60
-
-        </div>
-
-    </div>
-
-    <div class="plan">
-
-        <h3>PLAN EMPIRE</h3>
-
-        <p>
-
-            Montant : 150 000 HTG<br>
-
-            Durée : 60 jours<br>
-
-            Profit quotidien : 4%
-
-        </p>
-
-        <button class="buy" onclick="acheterPlan(150000,'PLAN EMPIRE')">
-
-            Acheter ce plan
-
-        </button>
-
-        <div class="days">
-
-            Jours restants : 60
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-
-        CASHINVESTISSEMENT © 2026
-
-    </div>
+    </footer>
 
     <script type="module">
 
@@ -550,8 +560,8 @@
         import {
 
             getAuth,
-            signOut,
-            onAuthStateChanged
+            onAuthStateChanged,
+            signOut
 
         }
 
@@ -562,9 +572,7 @@
             getFirestore,
             doc,
             getDoc,
-            setDoc,
-            updateDoc,
-            increment
+            updateDoc
 
         }
 
@@ -581,126 +589,386 @@
 
         };
 
-        const app = initializeApp(firebaseConfig);
+        const app =
+            initializeApp(firebaseConfig);
 
-        const auth = getAuth(app);
+        const auth =
+            getAuth(app);
 
-        const db = getFirestore(app);
+        const db =
+            getFirestore(app);
+
+        const plans = [
+
+            {
+                nom: "PLAN STARTER",
+                montant: 1500,
+                gain: 60,
+                jours: 300,
+                total: 18000
+            },
+
+            {
+                nom: "PLAN SILVER",
+                montant: 5000,
+                gain: 200,
+                jours: 300,
+                total: 60000
+            },
+
+            {
+                nom: "PLAN GOLD",
+                montant: 15000,
+                gain: 600,
+                jours: 300,
+                total: 180000
+            },
+
+            {
+                nom: "PLAN VIP",
+                montant: 50000,
+                gain: 2000,
+                jours: 60,
+                total: 120000
+            },
+
+            {
+                nom: "PLAN BUSINESS",
+                montant: 75000,
+                gain: 3000,
+                jours: 60,
+                total: 180000
+            }
+
+        ];
 
         let currentUser = null;
 
-        let solde = 0;
+        let userData = null;
 
-        console.log("Firebase connecté avec succès 🔥");
+        onAuthStateChanged(auth,
+            async (user) => {
 
-        onAuthStateChanged(auth, async (user) => {
+                if (user) {
 
-            if (user) {
+                    currentUser = user;
 
-                currentUser = user;
+                    const userRef =
+                        doc(db, "users", user.uid);
 
-                const userRef =
-                    doc(db, "users", user.uid);
+                    const userSnap =
+                        await getDoc(userRef);
 
-                const userSnap =
-                    await getDoc(userRef);
+                    if (userSnap.exists()) {
 
-                if (!userSnap.exists()) {
+                        userData =
+                            userSnap.data();
 
-                    await setDoc(userRef, {
+                        loadDashboard();
 
-                        solde: 100
-
-                    });
-
-                    solde = 100;
+                    }
 
                 } else {
 
-                    solde =
-                        userSnap.data().solde || 0;
+                    window.location.href =
+                        "login.html";
 
                 }
 
-                document.getElementById("solde").innerText =
-                    solde + " HTG";
+            });
 
-            } else {
+        function loadDashboard() {
 
-                window.location.href =
-                    "login.html";
+            document.getElementById(
+                "solde"
+            ).innerText =
+                userData.solde + " HTG";
+
+            document.getElementById(
+                "fidelite"
+            ).innerText =
+                userData.fidelite + " HTG";
+
+            document.getElementById(
+                "parrainage"
+            ).innerText =
+                userData.parrainage + " HTG";
+
+            document.getElementById(
+                "totalInvesti"
+            ).innerText =
+                userData.totalInvesti + " HTG";
+
+            document.getElementById(
+                "gainsQuotidiens"
+            ).innerText =
+                userData.gainsQuotidiens + " HTG";
+
+            document.getElementById(
+                "plansActifs"
+            ).innerText =
+                userData.plans.length;
+
+            document.getElementById(
+                "refCode"
+            ).value =
+                userData.referralCode;
+
+            const lien =
+                window.location.origin
+                +
+                "/register.html?ref="
+                +
+                userData.referralCode;
+
+            document.getElementById(
+                "refLink"
+            ).value =
+                lien;
+
+            loadPlans();
+
+            loadActivePlans();
+
+        }
+
+        window.copierLien =
+            function () {
+
+                navigator.clipboard.writeText(
+
+                    document.getElementById(
+                        "refLink"
+                    ).value
+
+                );
+
+                alert(
+                    "Lien copié avec succès."
+                );
 
             }
 
-        });
+        function loadPlans() {
+
+            const container =
+                document.getElementById(
+                    "plansContainer"
+                );
+
+            container.innerHTML = "";
+
+            plans.forEach(plan => {
+
+                const dejaAchete =
+                    userData.plans.some(
+                        p => p.nom === plan.nom
+                    );
+
+                container.innerHTML += `
+
+<div class="plan">
+
+<h2>
+${plan.nom}
+</h2>
+
+<p>
+
+Montant :
+${plan.montant} HTG<br>
+
+Durée :
+${plan.jours} jours<br>
+
+Profit quotidien :
+4%<br>
+
+Gain quotidien :
+${plan.gain} HTG<br>
+
+Total à la fin :
+${plan.total} HTG
+
+</p>
+
+<button
+${dejaAchete ? "disabled" : ""}
+onclick="acheterPlan('${plan.nom}')">
+
+${dejaAchete
+                        ?
+                        "Plan déjà acheté"
+                        :
+                        "Acheter ce plan"}
+
+</button>
+
+</div>
+
+`;
+
+            });
+
+        }
+
+        function loadActivePlans() {
+
+            const container =
+                document.getElementById(
+                    "activePlans"
+                );
+
+            container.innerHTML = "";
+
+            userData.plans.forEach(plan => {
+
+                container.innerHTML += `
+
+<div class="active-plan">
+
+<h3>
+
+${plan.nom}
+
+</h3>
+
+<p>
+
+Investissement :
+${plan.montant} HTG<br>
+
+Gain quotidien :
+${plan.gain} HTG<br>
+
+Durée :
+${plan.jours} jours<br>
+
+Total final :
+${plan.total} HTG
+
+</p>
+
+</div>
+
+`;
+
+            });
+
+        }
 
         window.acheterPlan =
-            async function (prix, nom) {
+            async function (nom) {
 
-                if (solde < prix) {
+                const plan =
+                    plans.find(
+                        p => p.nom === nom
+                    );
+
+                let totalDisponible =
+
+                    userData.solde
+                    +
+                    userData.fidelite
+                    +
+                    userData.parrainage;
+
+                if (totalDisponible < plan.montant) {
 
                     alert(
-                        "Solde insuffisant pour acheter ce plan."
+                        "Solde insuffisant."
                     );
 
                     return;
 
                 }
 
-                let confirmation =
-                    confirm(
-                        "Voulez-vous vraiment acheter " + nom + " ?"
-                    );
+                let reste =
+                    plan.montant;
 
-                if (!confirmation) {
+                if (userData.fidelite >= reste) {
 
-                    return;
+                    userData.fidelite -= reste;
+
+                    reste = 0;
+
+                } else {
+
+                    reste -= userData.fidelite;
+
+                    userData.fidelite = 0;
 
                 }
+
+                if (reste > 0) {
+
+                    if (userData.parrainage >= reste) {
+
+                        userData.parrainage -= reste;
+
+                        reste = 0;
+
+                    } else {
+
+                        reste -= userData.parrainage;
+
+                        userData.parrainage = 0;
+
+                    }
+
+                }
+
+                if (reste > 0) {
+
+                    userData.solde -= reste;
+
+                }
+
+                userData.totalInvesti +=
+                    plan.montant;
+
+                userData.gainsQuotidiens +=
+                    plan.gain;
+
+                userData.plans.push(plan);
 
                 await updateDoc(
 
                     doc(db, "users", currentUser.uid),
 
                     {
-                        solde: increment(-prix)
+
+                        solde: userData.solde,
+
+                        fidelite: userData.fidelite,
+
+                        parrainage: userData.parrainage,
+
+                        totalInvesti: userData.totalInvesti,
+
+                        gainsQuotidiens: userData.gainsQuotidiens,
+
+                        plans: userData.plans
+
                     }
 
                 );
 
-                solde = solde - prix;
-
-                document.getElementById("solde").innerText =
-                    solde + " HTG";
-
                 alert(
-                    "Plan acheté avec succès ✅"
+                    "Plan acheté avec succès."
                 );
+
+                loadDashboard();
 
             }
 
         window.logout =
             async function () {
 
-                let confirmation =
-                    confirm(
-                        "Voulez-vous vraiment quitter CASHINVESTISSEMENT ?"
-                    );
-
-                if (!confirmation) {
-
-                    return;
-
-                }
-
                 await signOut(auth);
 
-                alert(
-                    "Compte déconnecté avec succès."
-                );
-
                 window.location.href =
-                    "index.html";
+                    "login.html";
 
             }
 
