@@ -69,11 +69,11 @@
 
             text-align: center;
 
-            font-size: 26px;
+            font-size: 28px;
 
             font-weight: bold;
 
-            margin-bottom: 15px;
+            margin-bottom: 10px;
 
             color: #38bdf8;
 
@@ -87,7 +87,7 @@
 
             margin-bottom: 25px;
 
-            color: #ffffff;
+            color: white;
 
         }
 
@@ -99,13 +99,13 @@
 
         .input-box label {
 
-            font-size: 14px;
-
-            color: #d6d6d6;
-
             display: block;
 
             margin-bottom: 8px;
+
+            font-size: 14px;
+
+            color: #d6d6d6;
 
         }
 
@@ -126,7 +126,7 @@
 
             color: white;
 
-            font-size: 15px;
+            font-size: 14px;
 
         }
 
@@ -171,6 +171,50 @@
 
         }
 
+        .info {
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(34, 197, 94, 0.15);
+
+            font-size: 14px;
+
+            line-height: 28px;
+
+            color: #bbf7d0;
+
+            text-align: center;
+
+        }
+
+        .error {
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(220, 38, 38, 0.15);
+
+            font-size: 14px;
+
+            line-height: 28px;
+
+            display: none;
+
+            color: #fecaca;
+
+            text-align: center;
+
+        }
+
         .links {
 
             margin-top: 20px;
@@ -181,53 +225,15 @@
 
         .links a {
 
+            color: #38bdf8;
+
             font-size: 14px;
 
             text-decoration: none;
 
-            color: #38bdf8;
-
         }
 
-        .error {
-
-            background:
-                rgba(220, 38, 38, 0.15);
-
-            padding: 12px;
-
-            border-radius: 10px;
-
-            margin-top: 15px;
-
-            font-size: 14px;
-
-            display: none;
-
-            color: #fecaca;
-
-        }
-
-        .success {
-
-            background:
-                rgba(34, 197, 94, 0.15);
-
-            padding: 12px;
-
-            border-radius: 10px;
-
-            margin-top: 15px;
-
-            font-size: 14px;
-
-            display: none;
-
-            color: #bbf7d0;
-
-        }
-
-        .footer {
+        footer {
 
             text-align: center;
 
@@ -260,11 +266,14 @@
 
         </div>
 
-        <div class="error" id="errorBox">
+        <div class="info">
+
+            🎁 Chaque nouvel utilisateur reçoit automatiquement
+            100 HTG de fidélité après inscription.
 
         </div>
 
-        <div class="success" id="successBox">
+        <div class="error" id="errorBox">
 
         </div>
 
@@ -288,7 +297,7 @@
 
             </label>
 
-            <input type="email" id="email" placeholder="Entrez votre email">
+            <input type="email" id="email" placeholder="Entrez votre adresse email">
 
         </div>
 
@@ -320,11 +329,12 @@
 
             <label>
 
-                Code de parrainage (optionnel)
+                Code de parrainage
+                (optionnel)
 
             </label>
 
-            <input type="text" id="referral" placeholder="Entrez un code de parrainage">
+            <input type="text" id="parrainage" placeholder="Entrez un code de parrainage">
 
         </div>
 
@@ -344,14 +354,13 @@
 
         </div>
 
-        <div class="footer">
+        <footer>
 
-            Bonus de bienvenue :
-            100 HTG de fidélité offerts après inscription.<br><br>
+            © 1997 CASHINVESTISSEMENT<br>
 
-            © 1997 CASHINVESTISSEMENT
+            Plateforme internationale d’investissement.
 
-        </div>
+        </footer>
 
     </div>
 
@@ -403,32 +412,20 @@
         function showError(message) {
 
             const box =
-                document.getElementById("errorBox");
+                document.getElementById(
+                    "errorBox"
+                );
 
-            box.style.display = "block";
+            box.style.display =
+                "block";
 
-            box.innerText = message;
-
-            setTimeout(() => {
-
-                box.style.display = "none";
-
-            }, 4000);
-
-        }
-
-        function showSuccess(message) {
-
-            const box =
-                document.getElementById("successBox");
-
-            box.style.display = "block";
-
-            box.innerText = message;
+            box.innerText =
+                message;
 
             setTimeout(() => {
 
-                box.style.display = "none";
+                box.style.display =
+                    "none";
 
             }, 4000);
 
@@ -438,25 +435,36 @@
             async function () {
 
                 const nom =
-                    document.getElementById("nom").value;
+                    document.getElementById(
+                        "nom"
+                    ).value;
 
                 const email =
-                    document.getElementById("email").value;
+                    document.getElementById(
+                        "email"
+                    ).value;
 
                 const password =
-                    document.getElementById("password").value;
+                    document.getElementById(
+                        "password"
+                    ).value;
 
                 const confirmPassword =
-                    document.getElementById("confirmPassword").value;
+                    document.getElementById(
+                        "confirmPassword"
+                    ).value;
 
-                const referral =
-                    document.getElementById("referral").value;
+                const parrainage =
+                    document.getElementById(
+                        "parrainage"
+                    ).value;
 
                 if (
                     nom === "" ||
                     email === "" ||
                     password === "" ||
                     confirmPassword === ""
+
                 ) {
 
                     showError(
@@ -477,9 +485,20 @@
 
                 }
 
+                if (password.length < 6) {
+
+                    showError(
+                        "Le mot de passe doit contenir au moins 6 caractères."
+                    );
+
+                    return;
+
+                }
+
                 try {
 
                     const userCredential =
+
                         await createUserWithEmailAndPassword(
 
                             auth,
@@ -491,8 +510,13 @@
                     const user =
                         userCredential.user;
 
-                    const referralCode =
-                        user.uid.substring(0, 6).toUpperCase();
+                    const codeParrainage =
+
+                        "CASH" +
+
+                        Math.floor(
+                            100000 + Math.random() * 900000
+                        );
 
                     await setDoc(
 
@@ -500,11 +524,11 @@
 
                         {
 
+                            uid: user.uid,
+
                             nom: nom,
 
                             email: email,
-
-                            uid: user.uid,
 
                             solde: 0,
 
@@ -516,30 +540,25 @@
 
                             gainsQuotidiens: 0,
 
-                            blocked: false,
-
-                            referralCode: referralCode,
-
-                            referent: referral || "",
-
                             plans: [],
 
-                            dateCreation: new Date()
+                            blocked: false,
+
+                            codeParrainage:
+                                codeParrainage,
+
+                            codeUtilise:
+                                parrainage || "",
+
+                            dateInscription:
+                                new Date().toLocaleString()
 
                         }
 
                     );
 
-                    showSuccess(
-                        "Compte créé avec succès."
-                    );
-
-                    setTimeout(() => {
-
-                        window.location.href =
-                            "dashboard.html";
-
-                    }, 1500);
+                    window.location.href =
+                        "dashboard.html";
 
                 } catch (error) {
 
