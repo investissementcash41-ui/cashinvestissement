@@ -474,8 +474,12 @@
 
                     setTimeout(() => {
 
-                        window.location.href =
-                            "dashboard.html";
+                        if (user.email === "williosemestal055@gmail.com") {
+                            window.location.href = "admin.html";
+                        } else {
+                            window.location.href = "dashboard.html";
+                        }
+
 
                     }, 1500);
 
