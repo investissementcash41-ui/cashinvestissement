@@ -1,1046 +1,402 @@
-<!-- ========================= -->
-<!-- ADMIN PANEL PREMIUM FINAL -->
-<!-- ========================= -->
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>
-        ADMIN PANEL PREMIUM
-    </title>
+    <title>Admin Panel</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
-
-            background:
-                linear-gradient(135deg,
-                    #050816,
-                    #0f172a,
-                    #1d4ed8,
-                    #14532d,
-                    #991b1b);
-
-            color: white;
-
-            padding: 20px;
-
-            min-height: 100vh;
-
+            display: flex;
+            height: 100vh;
+            background: #f4f6f9;
         }
 
-        .header {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-            gap: 15px;
-
-            margin-bottom: 30px;
-
+        .sidebar {
+            width: 250px;
+            background: #004aad;
+            color: white;
+            padding-top: 20px;
         }
 
         .logo {
-
-            font-size: 30px;
-
+            text-align: center;
+            font-size: 24px;
             font-weight: bold;
-
-            color: gold;
-
-        }
-
-        .logout {
-
-            padding: 12px 22px;
-
-            border: none;
-
-            border-radius: 12px;
-
-            background: red;
-
-            color: white;
-
-            font-size: 14px;
-
-            cursor: pointer;
-
-        }
-
-        .cards {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
-
-            gap: 20px;
-
             margin-bottom: 30px;
+        }
 
+        .menu {
+            list-style: none;
+        }
+
+        .menu li {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .menu li:hover {
+            background: #003080;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .card {
-
-            padding: 25px;
-
-            border-radius: 22px;
-
-            background:
-                rgba(255, 255, 255, 0.06);
-
-            border:
-                1px solid rgba(255, 255, 255, 0.1);
-
-            backdrop-filter: blur(10px);
-
-            cursor: pointer;
-
-            transition: 0.3s;
-
-        }
-
-        .card:hover {
-
-            transform: scale(1.03);
-
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
         }
 
         .card h3 {
-
-            font-size: 16px;
-
-            margin-bottom: 15px;
-
-            color: #d1d5db;
-
-        }
-
-        .card h1 {
-
-            font-size: 34px;
-
-            color: #fde047;
-
+            margin-bottom: 10px;
+            color: #2306dd;
         }
 
         .section {
-
-            margin-top: 25px;
-
-            padding: 25px;
-
-            border-radius: 22px;
-
-            background:
-                rgba(255, 255, 255, 0.05);
-
-            border:
-                1px solid rgba(255, 255, 255, 0.08);
-
-        }
-
-        .section h2 {
-
-            margin-bottom: 20px;
-
-            font-size: 24px;
-
-            color: #38bdf8;
-
-        }
-
-        .box {
-
-            padding: 18px;
-
-            border-radius: 18px;
-
-            background:
-                rgba(255, 255, 255, 0.05);
-
-            margin-bottom: 18px;
-
-            border:
-                1px solid rgba(255, 255, 255, 0.06);
-
-        }
-
-        .box p {
-
-            line-height: 30px;
-
-            font-size: 14px;
-
-            color: #e5e7eb;
-
-        }
-
-        .buttons {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(150px, 1fr));
-
-            gap: 10px;
-
-            margin-top: 15px;
-
-        }
-
-        button {
-
-            padding: 12px;
-
-            border: none;
-
+            background: white;
+            padding: 20px;
             border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+        }
 
-            cursor: pointer;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
 
-            font-size: 14px;
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
 
-            font-weight: bold;
-
+        table th {
+            background: #004aad;
             color: white;
-
-        }
-
-        .green {
-            background: #16a34a;
-        }
-
-        .red {
-            background: #dc2626;
-        }
-
-        .blue {
-            background: #2563eb;
-        }
-
-        .orange {
-            background: #ea580c;
-        }
-
-        .yellow {
-            background: #ca8a04;
-        }
-
-        .history {
-
-            margin-top: 30px;
-
-        }
-
-        footer {
-
-            margin-top: 40px;
-
-            text-align: center;
-
-            font-size: 13px;
-
-            color: #d1d5db;
-
-            line-height: 25px;
-
-        }
-
-        .hidden {
-
-            display: none;
-
         }
     </style>
-
 </head>
 
 <body>
 
-    <div class="header">
+    <div class="sidebar">
 
         <div class="logo">
-
-            👑 ADMIN PANEL PREMIUM
-
+            Admin Panel
         </div>
 
-        <button class="logout" onclick="logout()">
-
-            Déconnexion
-
-        </button>
+        <ul class="menu">
+            <li onclick="showSection('dashboard')">📊 Dashboard</li>
+            <li onclick="showSection('users')">👥 Utilisateurs</li>
+            <li onclick="showSection('deposits')">💰 Dépôts</li>
+            <li onclick="showSection('withdrawals')">🏧 Retraits</li>
+            <li onclick="showSection('settings')">⚙️ Paramètres</li>
+            <li onclick="logout()">🚪 Déconnexion</li>
+        </ul>
 
     </div>
 
-    <div class="cards">
+    <div class="content">
 
-        <div class="card" onclick="showSection('usersSection')">
+        <div id="dashboard">
 
-            <h3>
-                👥 Total Utilisateurs
-            </h3>
+            <div class="card-grid">
 
-            <h1 id="totalUsers">
-                0
-            </h1>
+                <div class="card">
+                    <h3>Utilisateurs</h3>
+                    <p id="totalUsers">0</p>
+                </div>
 
-        </div>
+                <div class="card">
+                    <h3>Dépôts</h3>
+                    <p id="totalDeposits">0</p>
+                </div>
 
-        <div class="card" onclick="showSection('depotSection')">
+                <div class="card">
+                    <h3>Retraits</h3>
+                    <p id="totalWithdrawals">0</p>
+                </div>
 
-            <h3>
-                🏦 Total Dépôts
-            </h3>
-
-            <h1 id="totalDepots">
-                0
-            </h1>
-
-        </div>
-
-        <div class="card" onclick="showSection('retraitSection')">
-
-            <h3>
-                💸 Total Retraits
-            </h3>
-
-            <h1 id="totalRetraits">
-                0
-            </h1>
+            </div>
 
         </div>
 
-        <div class="card" onclick="showSection('historySection')">
+        <div id="users" style="display:none">
 
-            <h3>
-                📜 Historique
-            </h3>
+            <div class="section">
 
-            <h1 id="totalHistory">
-                0
-            </h1>
+                <h2>Utilisateurs</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="usersTable">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div id="deposits" style="display:none">
+
+            <div class="section">
+
+                <h2>Demandes de dépôt</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Utilisateur</th>
+                            <th>Montant</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="depositsTable">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div id="withdrawals" style="display:none">
+
+            <div class="section">
+
+                <h2>Demandes de retrait</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Utilisateur</th>
+                            <th>Montant</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="withdrawalsTable">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div id="settings" style="display:none">
+
+            <div class="section">
+
+                <h2>Paramètres</h2>
+
+                <p>Bonus fidélité : 500</p>
+                <p>Retrait minimum : 1750</p>
+                <p>Frais retrait : 8%</p>
+
+            </div>
 
         </div>
 
     </div>
 
-    <!-- USERS -->
+    <script>
 
-    <div class="section" id="usersSection">
+        function showSection(section) {
 
-        <h2>
-            👥 Gestion Utilisateurs
-        </h2>
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('users').style.display = 'none';
+            document.getElementById('deposits').style.display = 'none';
+            document.getElementById('withdrawals').style.display = 'none';
+            document.getElementById('settings').style.display = 'none';
 
-        <div id="usersContainer">
-
-        </div>
-
-    </div>
-
-    <!-- DEPOTS -->
-
-    <div class="section hidden" id="depotSection">
-
-        <h2>
-            🏦 Gestion Dépôts
-        </h2>
-
-        <div id="depotsContainer">
-
-        </div>
-
-    </div>
-
-    <!-- RETRAITS -->
-
-    <div class="section hidden" id="retraitSection">
-
-        <h2>
-            💸 Gestion Retraits
-        </h2>
-
-        <div id="retraitsContainer">
-
-        </div>
-
-    </div>
-
-    <!-- HISTORIQUE -->
-
-    <div class="section hidden" id="historySection">
-
-        <h2>
-            📜 Historique Administrateur
-        </h2>
-
-        <div id="historyContainer">
-
-        </div>
-
-    </div>
-
-    <footer>
-
-        © 1997 CASHINVESTISSEMENT
-
-    </footer>
-
-    <script type="module">
-
-        import { initializeApp }
-
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-        import {
-
-            getFirestore,
-            collection,
-            getDocs,
-            doc,
-            updateDoc,
-            deleteDoc,
-            getDoc,
-            addDoc
+            document.getElementById(section).style.display = 'block';
 
         }
 
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        function logout() {
 
-        import {
-
-            getAuth,
-            signOut
+            window.location.href = 'login.html';
 
         }
-
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-        const firebaseConfig = {
-
-            apiKey: "METE_APIKEY_OU",
-
-            authDomain: "METE_AUTHDOMAIN_OU",
-
-            projectId: "METE_PROJECTID_OU",
-
-            storageBucket: "METE_STORAGEBUCKET_OU",
-
-            messagingSenderId: "METE_MESSAGINGSENDERID_OU",
-
-            appId: "METE_APPID_OU"
-
-        };
-
-        const app =
-            initializeApp(firebaseConfig);
-
-        const db =
-            getFirestore(app);
-
-        const auth =
-            getAuth(app);
-
-        window.showSection =
-            function (sectionId) {
-
-                document
-                    .querySelectorAll(".section")
-                    .forEach(sec => {
-
-                        sec.classList.add("hidden");
-
-                    });
-
-                document
-                    .getElementById(sectionId)
-                    .classList.remove("hidden");
-
-            }
-
-        async function loadUsers() {
-
-            const users =
-                await getDocs(
-                    collection(db, "users")
-                );
-
-            document
-                .getElementById("totalUsers")
-                .innerText =
-                users.size;
-
-            const container =
-                document
-                    .getElementById("usersContainer");
-
-            container.innerHTML = "";
-
-            users.forEach((docu) => {
-
-                const data =
-                    docu.data();
-
-                container.innerHTML += `
-
-<div class="box">
-
-<p>
-
-👤 Nom :
-${data.nom || "Aucun"}<br>
-
-📧 Email :
-${data.email || "Aucun"}<br>
-
-💰 Solde Principal :
-${data.solde || 0} HTG<br>
-
-🎁 Fidélité :
-${data.fidelite || 0} HTG<br>
-
-🤝 Parrainage :
-${data.parrainage || 0} HTG<br>
-
-📈 Total Investi :
-${data.totalInvesti || 0} HTG<br>
-
-💵 Gains Quotidiens :
-${data.gainsQuotidiens || 0} HTG<br>
-
-📅 Date :
-${data.dateInscription || "Aucune"}<br>
-
-🔒 Etat :
-${data.blocked ? "Bloqué" : "Actif"}
-
-</p>
-
-<div class="buttons">
-
-<button class="green"
-onclick="addMoney('${docu.id}')">
-
-Ajouter Argent
-
-</button>
-
-<button class="orange"
-onclick="removeMoney('${docu.id}')">
-
-Retirer Argent
-
-</button>
-
-<button class="yellow"
-onclick="resetPassword('${data.email}')">
-
-Reset Password
-
-</button>
-
-<button class="red"
-onclick="blockUser('${docu.id}')">
-
-Bloquer
-
-</button>
-
-<button class="blue"
-onclick="unblockUser('${docu.id}')">
-
-Débloquer
-
-</button>
-
-<button class="red"
-onclick="deleteUser('${docu.id}')">
-
-Supprimer
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-            });
-
-        }
-
-        async function loadDepots() {
-
-            const depots =
-                await getDocs(
-                    collection(db, "depotDemandes")
-                );
-
-            document
-                .getElementById("totalDepots")
-                .innerText =
-                depots.size;
-
-            const container =
-                document
-                    .getElementById("depotsContainer");
-
-            container.innerHTML = "";
-
-            depots.forEach((docu) => {
-
-                const data =
-                    docu.data();
-
-                if (data.status === "En attente") {
-
-                    container.innerHTML += `
-
-<div class="box">
-
-<p>
-
-👤 UID :
-${data.uid}<br>
-
-🏦 Méthode :
-${data.methode}<br>
-
-💰 Montant :
-${data.montant} HTG<br>
-
-🧾 Transaction :
-${data.transaction}<br>
-
-📅 Date :
-${data.date || ""}
-
-</p>
-
-<div class="buttons">
-
-<button class="green"
-onclick="validateDepot(
-'${docu.id}',
-'${data.uid}',
-${data.montant}
-)">
-
-Valider
-
-</button>
-
-<button class="red"
-onclick="refuseDepot('${docu.id}')">
-
-Refuser
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-                }
-
-            });
-
-        }
-
-        async function loadRetraits() {
-
-            const retraits =
-                await getDocs(
-                    collection(db, "retraits")
-                );
-
-            document
-                .getElementById("totalRetraits")
-                .innerText =
-                retraits.size;
-
-            const container =
-                document
-                    .getElementById("retraitsContainer");
-
-            container.innerHTML = "";
-
-            retraits.forEach((docu) => {
-
-                const data =
-                    docu.data();
-
-                if (data.status === "En attente") {
-
-                    container.innerHTML += `
-
-<div class="box">
-
-<p>
-
-👤 UID :
-${data.uid}<br>
-
-💸 Méthode :
-${data.methode}<br>
-
-📱 Numéro :
-${data.numero}<br>
-
-💰 Montant :
-${data.montant} HTG<br>
-
-📅 Date :
-${data.date || ""}
-
-</p>
-
-<div class="buttons">
-
-<button class="green"
-onclick="validateRetrait('${docu.id}')">
-
-Valider
-
-</button>
-
-<button class="red"
-onclick="refuseRetrait('${docu.id}')">
-
-Refuser
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-                }
-
-            });
-
-        }
-
-        async function loadHistory() {
-
-            const history =
-                await getDocs(
-                    collection(db, "historique")
-                );
-
-            document
-                .getElementById("totalHistory")
-                .innerText =
-                history.size;
-
-            const container =
-                document
-                    .getElementById("historyContainer");
-
-            container.innerHTML = "";
-
-            history.forEach((docu) => {
-
-                const data =
-                    docu.data();
-
-                container.innerHTML += `
-
-<div class="box">
-
-<p>
-
-📌 Action :
-${data.action}<br>
-
-👤 UID :
-${data.uid}<br>
-
-💰 Montant :
-${data.montant || 0} HTG<br>
-
-📅 Date :
-${data.date}
-
-</p>
-
-</div>
-
-`;
-
-            });
-
-        }
-
-        window.addMoney =
-            async function (uid) {
-
-                const montant =
-                    prompt("Montant à ajouter");
-
-                if (!montant) return;
-
-                const ref =
-                    doc(db, "users", uid);
-
-                const snap =
-                    await getDoc(ref);
-
-                const data =
-                    snap.data();
-
-                await updateDoc(ref, {
-
-                    solde:
-                        Number(data.solde || 0)
-                        +
-                        Number(montant)
-
-                });
-
-                alert("Argent ajouté.");
-
-                location.reload();
-
-            }
-
-        window.removeMoney =
-            async function (uid) {
-
-                const montant =
-                    prompt("Montant à retirer");
-
-                if (!montant) return;
-
-                const ref =
-                    doc(db, "users", uid);
-
-                const snap =
-                    await getDoc(ref);
-
-                const data =
-                    snap.data();
-
-                await updateDoc(ref, {
-
-                    solde:
-                        Number(data.solde || 0)
-                        -
-                        Number(montant)
-
-                });
-
-                alert("Argent retiré.");
-
-                location.reload();
-
-            }
-
-        window.blockUser =
-            async function (uid) {
-
-                await updateDoc(
-                    doc(db, "users", uid),
-                    {
-                        blocked: true
-                    }
-                );
-
-                alert("Compte bloqué.");
-
-                location.reload();
-
-            }
-
-        window.unblockUser =
-            async function (uid) {
-
-                await updateDoc(
-                    doc(db, "users", uid),
-                    {
-                        blocked: false
-                    }
-                );
-
-                alert("Compte débloqué.");
-
-                location.reload();
-
-            }
-
-        window.deleteUser =
-            async function (uid) {
-
-                await deleteDoc(
-                    doc(db, "users", uid)
-                );
-
-                alert("Utilisateur supprimé.");
-
-                location.reload();
-
-            }
-
-        window.validateDepot =
-            async function (id, uid, montant) {
-
-                const ref =
-                    doc(db, "users", uid);
-
-                const snap =
-                    await getDoc(ref);
-
-                const data =
-                    snap.data();
-
-                await updateDoc(ref, {
-
-                    solde:
-                        Number(data.solde || 0)
-                        +
-                        Number(montant)
-
-                });
-
-                await addDoc(
-                    collection(db, "historique"),
-                    {
-                        action: "Dépôt validé",
-                        uid: uid,
-                        montant: montant,
-                        date: new Date().toLocaleString()
-                    }
-                );
-
-                await deleteDoc(
-                    doc(db, "depotDemandes", id)
-                );
-
-                alert("Dépôt validé.");
-
-                location.reload();
-
-            }
-
-        window.refuseDepot =
-            async function (id) {
-
-                await addDoc(
-                    collection(db, "historique"),
-                    {
-                        action: "Dépôt refusé",
-                        uid: "Inconnu",
-                        date: new Date().toLocaleString()
-                    }
-                );
-
-                await deleteDoc(
-                    doc(db, "depotDemandes", id)
-                );
-
-                alert("Dépôt refusé.");
-
-                location.reload();
-
-            }
-
-        window.validateRetrait =
-            async function (id) {
-
-                await addDoc(
-                    collection(db, "historique"),
-                    {
-                        action: "Retrait validé",
-                        date: new Date().toLocaleString()
-                    }
-                );
-
-                await deleteDoc(
-                    doc(db, "retraits", id)
-                );
-
-                alert("Retrait validé.");
-
-                location.reload();
-
-            }
-
-        window.refuseRetrait =
-            async function (id) {
-
-                await addDoc(
-                    collection(db, "historique"),
-                    {
-                        action: "Retrait refusé",
-                        date: new Date().toLocaleString()
-                    }
-                );
-
-                await deleteDoc(
-                    doc(db, "retraits", id)
-                );
-
-                alert("Retrait refusé.");
-
-                location.reload();
-
-            }
-
-        window.resetPassword =
-            function (email) {
-
-                alert(
-                    "Nouveau mot de passe envoyé à : "
-                    +
-                    email
-                );
-
-            }
-
-        window.logout =
-            async function () {
-
-                await signOut(auth);
-
-                window.location.href =
-                    "login.html";
-
-            }
-
-        loadUsers();
-
-        loadDepots();
-
-        loadRetraits();
-
-        loadHistory();
 
     </script>
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+    import {
+        getFirestore,
+        collection,
+        getDocs
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
+        authDomain: "cashinvestissement-f8104.firebaseapp.com",
+        projectId: "cashinvestissement-f8104",
+        storageBucket: "cashinvestissement-f8104.firebasestorage.app",
+        messagingSenderId: "645010004253",
+        appId: "1:645010004253:web:e885536adcc0f1966e69f4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.showSection = function (section) {
+
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('users').style.display = 'none';
+        document.getElementById('deposits').style.display = 'none';
+        document.getElementById('withdrawals').style.display = 'none';
+        document.getElementById('settings').style.display = 'none';
+
+        document.getElementById(section).style.display = 'block';
+
+    }
+
+    window.logout = function () {
+        window.location.href = 'login.html';
+    }
+
+    async function loadUsers() {
+
+        const querySnapshot =
+            await getDocs(collection(db, "users"));
+
+        let total = 0;
+
+        const table =
+            document.getElementById("usersTable");
+
+        table.innerHTML = "";
+
+        querySnapshot.forEach((docu) => {
+
+            total++;
+
+            const data = docu.data();
+
+            table.innerHTML += `
+<tr>
+<td>${data.fullName || data.nom || ""}</td>
+<td>${data.email || ""}</td>
+<td>${data.role || "user"}</td>
+<td>${data.status || "active"}</td>
+</tr>
+`;
+
+        });
+
+        document.getElementById("totalUsers").innerText =
+            total;
+
+    }
+
+    async function loadDeposits() {
+
+        const querySnapshot =
+            await getDocs(collection(db, "depotDemandes"));
+
+        let total = 0;
+
+        const table =
+            document.getElementById("depositsTable");
+
+        table.innerHTML = "";
+
+        querySnapshot.forEach((docu) => {
+
+            total++;
+
+            const data = docu.data();
+
+            table.innerHTML += `
+<tr>
+<td>${data.fullName || data.nom || ""}</td>
+<td>${data.montant || 0}</td>
+<td>${data.status || "En attente"}</td>
+</tr>
+`;
+
+        });
+
+        document.getElementById("totalDeposits").innerText =
+            total;
+
+    }
+
+    async function loadWithdrawals() {
+
+        const querySnapshot =
+            await getDocs(collection(db, "retraits"));
+
+        let total = 0;
+
+        const table =
+            document.getElementById("withdrawalsTable");
+
+        table.innerHTML = "";
+
+        querySnapshot.forEach((docu) => {
+
+            total++;
+
+            const data = docu.data();
+
+            table.innerHTML += `
+<tr>
+<td>${data.fullName || data.nom || ""}</td>
+<td>${data.montant || 0}</td>
+<td>${data.status || "En attente"}</td>
+</tr>
+`;
+
+        });
+
+        document.getElementById("totalWithdrawals").innerText =
+            total;
+
+    }
+
+    loadUsers();
+    loadDeposits();
+    loadWithdrawals();
+
+</script>
 
 </body>
 

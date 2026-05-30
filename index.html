@@ -2,319 +2,111 @@
 <html lang="fr">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        CASHINVESTISSEMENT
-    </title>
+    <title>CashInvestissement</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
-
-            background:
-                linear-gradient(135deg,
-                    #020617,
-                    #0f172a,
-                    #1e3a8a,
-                    #7f1d1d);
-
-            color: white;
-
-            min-height: 100vh;
-
-            overflow-x: hidden;
-
+            background: #f4f6f9;
+            color: #333;
         }
 
         header {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            padding: 20px 8%;
-
-            background: rgba(255, 255, 255, 0.05);
-
-            backdrop-filter: blur(10px);
-
-            border-bottom:
-                1px solid rgba(255, 255, 255, 0.08);
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
+            background: linear-gradient(135deg, #004aad, #ffffff, #d60000);
+            padding: 30px;
+            text-align: center;
         }
 
         .logo {
-
-            font-size: 24px;
-
+            font-size: 35px;
             font-weight: bold;
-
-            color: #38bdf8;
-
-            letter-spacing: 1px;
-
+            color: #004aad;
         }
 
-        nav {
-
-            display: flex;
-
-            gap: 15px;
-
-        }
-
-        nav a {
-
-            text-decoration: none;
-
-            padding: 12px 22px;
-
-            border-radius: 10px;
-
-            font-size: 15px;
-
+        .slogan {
+            margin-top: 10px;
+            font-size: 18px;
             font-weight: bold;
-
-            transition: 0.3s;
-
         }
 
-        .login {
-
-            background: #2563eb;
-
-            color: white;
-
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
         }
 
-        .register {
-
-            background: #dc2626;
-
-            color: white;
-
-        }
-
-        nav a:hover {
-
-            transform: scale(1.05);
-
-        }
-
-        .hero {
-
-            padding: 80px 8%;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            text-align: center;
-
-        }
-
-        .hero-content {
-
-            max-width: 900px;
-
-        }
-
-        .hero h1 {
-
-            font-size: 40px;
-
-            line-height: 55px;
-
-            margin-bottom: 25px;
-
-            color: #ffffff;
-
-        }
-
-        .hero h1 span {
-
-            color: #38bdf8;
-
-        }
-
-        .hero p {
-
-            font-size: 17px;
-
-            line-height: 35px;
-
-            color: #e2e8f0;
-
-            margin-bottom: 25px;
-
-        }
-
-        .boxes {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(250px, 1fr));
-
-            gap: 20px;
-
-            padding: 20px 8%;
-
-            margin-top: 20px;
-
-        }
-
-        .box {
-
-            background: rgba(255, 255, 255, 0.05);
-
+        .card {
+            background: white;
             padding: 25px;
-
-            border-radius: 20px;
-
-            backdrop-filter: blur(12px);
-
-            border:
-                1px solid rgba(255, 255, 255, 0.08);
-
-            transition: 0.3s;
-
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .box:hover {
-
-            transform: translateY(-5px);
-
-        }
-
-        .box h2 {
-
-            font-size: 20px;
-
+        h2 {
+            color: #004aad;
             margin-bottom: 15px;
-
-            color: #38bdf8;
-
         }
 
-        .box p {
-
-            font-size: 15px;
-
-            line-height: 30px;
-
-            color: #d6d6d6;
-
+        p {
+            line-height: 1.8;
         }
 
-        .cta {
-
-            display: flex;
-
-            justify-content: center;
-
-            margin-top: 50px;
-
-            padding-bottom: 60px;
-
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
         }
 
-        .cta a {
-
-            text-decoration: none;
-
-            padding: 16px 35px;
-
-            border-radius: 12px;
-
-            background:
-                linear-gradient(90deg,
-                    #2563eb,
-                    #dc2626);
-
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: #004aad;
             color: white;
-
-            font-size: 16px;
-
+            text-decoration: none;
+            border-radius: 8px;
             font-weight: bold;
-
             transition: 0.3s;
-
         }
 
-        .cta a:hover {
+        .btn:hover {
+            background: #003080;
+        }
 
-            transform: scale(1.05);
+        .contact {
+            text-align: center;
+            margin-top: 30px;
+        }
 
+        .contact a {
+            text-decoration: none;
+            color: #004aad;
+            font-weight: bold;
         }
 
         footer {
-
-            text-align: center;
-
-            padding: 30px;
-
-            background: rgba(255, 255, 255, 0.05);
-
             margin-top: 40px;
-
-            font-size: 14px;
-
-            color: #94a3b8;
-
-            line-height: 28px;
-
+            background: #004aad;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
 
-        @media(max-width:768px) {
-
-            .hero h1 {
-
-                font-size: 30px;
-
-                line-height: 45px;
-
-            }
-
-            .hero p {
-
-                font-size: 15px;
-
-                line-height: 30px;
-
-            }
-
-            header {
-
-                flex-direction: column;
-
-                gap: 15px;
-
-            }
-
+        .flag {
+            font-size: 25px;
+            margin-top: 10px;
         }
     </style>
-
 </head>
 
 <body>
@@ -322,186 +114,124 @@
     <header>
 
         <div class="logo">
-
-            CASHINVESTISSEMENT
-
+            📈 CashInvestissement
         </div>
 
-        <nav>
-
-            <a href="login.html" class="login">
-
-                Connexion
-
-            </a>
-
-            <a href="register.html" class="register">
-
-                Inscription
-
-            </a>
-
-        </nav>
+        <div class="slogan">
+            Investir aujourd'hui, réussir demain.
+        </div>
 
     </header>
 
-    <section class="hero">
+    <div class="container">
 
-        <div class="hero-content">
+        <div class="card">
 
-            <h1>
-
-                Bienvenue sur
-                <span>
-                    CASHINVESTISSEMENT
-                </span>
-
-            </h1>
+            <h2>À propos de CashInvestissement</h2>
 
             <p>
-
-                CASHINVESTISSEMENT est une plateforme internationale d’investissement créée en 1997 par l’entrepreneur
-                américain
-                <strong>
-                    Trump Alfred Hitchcock
-                </strong>.
-
-                Depuis plusieurs années, notre mission est d’aider les personnes du monde entier à développer leurs
-                revenus grâce à des solutions d’investissement modernes, rapides et accessibles.
-
-                La plateforme a officiellement commencé ses activités en Haïti en 2013 et continue aujourd’hui
-                d’accompagner des milliers d’utilisateurs à travers différents pays.
-
+                CashInvestissement est une plateforme d'investissement conçue pour permettre aux utilisateurs de
+                développer leur potentiel financier grâce à des solutions accessibles et simples à utiliser.
             </p>
 
+            <br>
+
             <p>
-
-                Grâce à CASHINVESTISSEMENT, chaque utilisateur peut commencer avec un petit investissement et avoir la
-                possibilité d’obtenir des revenus quotidiens selon le plan choisi.
-
-                Notre système offre également :
-
+                Selon l'histoire de la plateforme, le projet a été fondé en mars 1997 par Trump Alfred Hitchcock,
+                entrepreneur américain. La plateforme a ensuite été introduite en Haïti en septembre 2013 afin de
+                permettre à un plus grand nombre de personnes d'accéder aux opportunités d'investissement.
             </p>
 
         </div>
 
-    </section>
+        <div class="card">
 
-    <section class="boxes">
-
-        <div class="box">
-
-            <h2>
-
-                100 HTG de fidélité
-
-            </h2>
+            <h2>Notre Mission</h2>
 
             <p>
+                Notre mission est de rendre l'investissement accessible à tous, quelle que soit la taille du capital
+                initial.
+            </p>
 
-                Chaque nouvel utilisateur reçoit automatiquement
-                100 HTG de fidélité après son inscription sur la plateforme.
+            <ul style="margin-left:20px; margin-top:10px;">
+                <li>Faciliter l'accès à l'investissement.</li>
+                <li>Offrir une plateforme simple et moderne.</li>
+                <li>Favoriser la croissance financière des membres.</li>
+                <li>Garantir un accompagnement professionnel.</li>
+            </ul>
 
+        </div>
+
+        <div class="card">
+
+            <h2>Notre Vision</h2>
+
+            <p>
+                Devenir une référence internationale dans le domaine de l'investissement numérique en proposant des
+                services innovants, fiables et accessibles.
             </p>
 
         </div>
 
-        <div class="box">
+        <div class="card">
 
-            <h2>
+            <h2>Pourquoi choisir CashInvestissement ?</h2>
 
-                Code de Parrainage
-
-            </h2>
-
-            <p>
-
-                Chaque membre obtient automatiquement un code de référence personnel ainsi qu’un lien de parrainage pour
-                inviter de nouveaux investisseurs.
-
-            </p>
+            <ul style="margin-left:20px;">
+                <li>Interface simple et intuitive.</li>
+                <li>Support client réactif.</li>
+                <li>Plans adaptés à différents budgets.</li>
+                <li>Système de dépôt et retrait sécurisé.</li>
+                <li>Programme de fidélité et de parrainage.</li>
+            </ul>
 
         </div>
 
-        <div class="box">
+        <div class="btn-container">
 
-            <h2>
+            <a href="register.html" class="btn">
+                Créer un compte
+            </a>
 
-                Plateforme Internationale
-
-            </h2>
-
-            <p>
-
-                CASHINVESTISSEMENT est une plateforme moderne accessible depuis plusieurs pays à travers le monde.
-
-            </p>
+            <a href="login.html" class="btn">
+                Se connecter
+            </a>
 
         </div>
 
-        <div class="box">
+        <div class="contact">
 
-            <h2>
-
-                Système Sécurisé
-
-            </h2>
+            <h2>Contact Support</h2>
 
             <p>
+                WhatsApp :
+                <a href="https://wa.me/50931465733">
+                    +509 3146 5733
+                </a>
+            </p>
 
-                Notre priorité est la sécurité des utilisateurs, la rapidité des opérations et la transparence
-                financière.
+            <br>
 
+            <p>
+                Email :
+                investissementcash41@gmail.com
             </p>
 
         </div>
-
-    </section>
-
-    <div class="cta">
-
-        <a href="register.html">
-
-            Commencer maintenant
-
-        </a>
 
     </div>
 
     <footer>
 
-        © 1997 CASHINVESTISSEMENT<br>
+        <p>
+            © 1997 CashInvestissement - Tous droits réservés
+        </p>
 
-        Plateforme internationale d’investissement moderne.<br>
-
-        Présente en Haïti depuis 2013.
+        <div class="flag">
+            🇫🇷 Français | 🇺🇸 English
+        </div>
 
     </footer>
-
-    <script type="module">
-
-        import { initializeApp }
-
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-        const firebaseConfig = {
-
-            apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
-            authDomain: "cashinvestissement-f8104.firebaseapp.com",
-            projectId: "cashinvestissement-f8104",
-            storageBucket: "cashinvestissement-f8104.firebasestorage.app",
-            messagingSenderId: "645010004253",
-            appId: "1:645010004253:web:e885536adcc0f1966e69f4"
-
-        };
-
-        const app = initializeApp(firebaseConfig);
-
-        console.log(
-            "Firebase connecté avec succès 🔥"
-        );
-
-    </script>
 
 </body>
 
