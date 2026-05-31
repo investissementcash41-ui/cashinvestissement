@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Dashboard - CashInvestissement</title>
 
     <style>
@@ -16,690 +15,431 @@
         }
 
         body {
-            background: #0f172a;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #004aad;
             color: white;
             padding: 15px;
-        }
-
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            font-size: 24px;
+            text-align: center;
+            font-size: 22px;
             font-weight: bold;
-            color: #38bdf8;
         }
 
-        .logout-btn {
-            background: red;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 10px;
-            color: white;
+        .welcome {
+            padding: 15px;
+            font-size: 20px;
             font-weight: bold;
-            cursor: pointer;
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
-            margin-bottom: 25px;
+            padding: 15px;
         }
 
         .card {
-            background: #1e293b;
+            background: white;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+            text-align: center;
         }
 
         .card h3 {
+            color: #004aad;
             margin-bottom: 10px;
-            color: #38bdf8;
+            font-size: 16px;
         }
 
-        .amount {
-            font-size: 24px;
+        .card p {
+            font-size: 22px;
             font-weight: bold;
         }
 
-        .actions {
+        .section {
+            background: white;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+        }
+
+        .section h2 {
+            margin-bottom: 15px;
+            color: #004aad;
+        }
+
+        .plan {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .plan h4 {
+            margin-bottom: 8px;
+        }
+
+        .plan button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #004aad;
+            color: white;
+            cursor: pointer;
+        }
+
+        .buttons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .action-btn {
-            padding: 15px;
-            border: none;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            color: white;
-        }
-
-        .deposit-btn {
-            background: #22c55e;
-        }
-
-        .withdraw-btn {
-            background: #ef4444;
-        }
-
-        .section-title {
-            font-size: 22px;
-            margin: 20px 0;
-            color: #38bdf8;
-        }
-
-        .plans {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .plan-card {
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid #334155;
-        }
-
-        .plan-card h2 {
-            color: #22c55e;
-            margin-bottom: 10px;
-        }
-
-        .plan-price {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .plan-detail {
-            margin-top: 8px;
-        }
-
-        .buy-btn {
-            margin-top: 15px;
-            width: 100%;
             padding: 12px;
             border: none;
-            border-radius: 10px;
-            background: #22c55e;
+            border-radius: 8px;
+            background: #004aad;
             color: white;
-            font-weight: bold;
             cursor: pointer;
         }
 
-        .referral-box {
-            margin-top: 25px;
-            background: #1e293b;
+        .status-box {
+            background: #fff;
+            margin: 15px;
             padding: 20px;
-            border-radius: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
         }
 
-        .referral-code {
-            background: #0f172a;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            color: #22c55e;
-            margin-top: 10px;
+        .status-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
         }
 
-        .copy-btn {
-            margin-top: 10px;
-            width: 100%;
+        .params {
+            background: #fff;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+        }
+
+        .logout {
+            width: calc(100% - 30px);
+            margin: 15px;
             padding: 12px;
+            background: red;
+            color: white;
             border: none;
             border-radius: 10px;
-            background: #22c55e;
-            color: white;
-            font-weight: bold;
             cursor: pointer;
-        }
-
-        .history {
-            margin-top: 25px;
-        }
-
-        .history-item {
-            background: #1e293b;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .status {
-            color: orange;
-            font-weight: bold;
-        }
-
-        @media(max-width:768px) {
-
-            .logo {
-                font-size: 20px;
-            }
-
-            .amount {
-                font-size: 20px;
-            }
-
         }
     </style>
 </head>
 
 <body>
 
-    <div class="topbar">
+    <header>
+        CashInvestissement
+    </header>
 
-        <div class="logo">
-            CashInvestissement
-        </div>
-
-        <button class="logout-btn" onclick="logout()">
-            Déconnexion
-        </button>
-
+    <div class="welcome">
+        Bonjour cher investisseur   <span id="userName">...</span>
     </div>
-
-
-    <!-- CARDS -->
 
     <div class="cards">
 
         <div class="card">
+            <h3>Solde Investissement</h3>
+            <p id="soldeInvestissement">0 HTG</p>
+        </div>
+
+        <div class="card">
             <h3>Solde Principal</h3>
-            <div class="amount" id="balance">
-                0 HTG
-            </div>
+            <p id="soldePrincipal">0 HTG</p>
         </div>
 
         <div class="card">
-            <h3>Gains Totaux</h3>
-            <div class="amount" id="profits">
-                0 HTG
-            </div>
+            <h3>Solde Parrainage</h3>
+            <p id="soldeParrainage">0 HTG</p>
         </div>
 
         <div class="card">
-            <h3>Commissions</h3>
-            <div class="amount" id="commissions">
-                0 HTG
-            </div>
+            <h3>Total Dépôts</h3>
+            <p id="totalDepots">0 HTG</p>
         </div>
 
         <div class="card">
-            <h3>Plans Actifs</h3>
-            <div class="amount" id="activePlans">
-                0
-            </div>
+            <h3>Total Retraits</h3>
+            <p id="totalRetraits">0 HTG</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Gains</h3>
+            <p id="totalGains">0 HTG</p>
+        </div>
+
+        <div class="card">
+            <h3>Nombre de Filleuls</h3>
+            <p id="nombreFilleuls">0</p>
         </div>
 
     </div>
 
+    <div class="section">
 
+        <h2>Actions</h2>
 
-    <!-- ACTIONS -->
+        <div class="buttons">
 
-    <div class="actions">
+            <button class="action-btn" onclick="window.location.href='deposit.html'">
+                💳 Dépôt
+            </button>
 
-        <button class="action-btn deposit-btn" onclick="goDeposit()">
-            Dépôt
-        </button>
+            <button class="action-btn" onclick="window.location.href='withdraw.html'">
+                💸 Retrait
+            </button>
 
-        <button class="action-btn withdraw-btn" onclick="goWithdraw()">
-            Retrait
-        </button>
-
-    </div>
-
-
-
-    <!-- REFERRAL -->
-
-    <div class="referral-box">
-
-        <h2>
-            Code de Parrainage
-        </h2>
-
-        <div class="referral-code" id="referralCode">
-            Chargement...
         </div>
 
-        <button class="copy-btn" onclick="copyReferral()">
-            Copier le Code
-        </button>
-
     </div>
 
+    <div class="section">
 
+        <h2>Plans disponibles</h2>
 
-    <!-- PLANS -->
+        <div id="plansContainer">
 
-    <h2 class="section-title">
-        Plans Disponibles
-    </h2>
-
-    <div class="plans" id="plans-container">
-
-    </div>
-
-
-
-    <!-- HISTORIQUE -->
-
-    <div class="history">
-
-        <h2 class="section-title">
-            Historique
-        </h2>
-
-        <div id="history-container">
-
-            <div class="history-item">
-                <span>Aucune transaction</span>
-                <span class="status">
-                    0 HTG
-                </span>
+            <div class="plan">
+                <h4>Chargement...</h4>
             </div>
 
         </div>
 
     </div>
 
+    <div class="status-box">
 
+        <h2>Statut des demandes</h2>
 
-    <script type="module">
+        <div id="statusContainer">
 
-        import { initializeApp }
+            <div class="status-item">
+                Aucune demande.
+            </div>
 
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        </div>
 
-        import {
+    </div>
 
-            getAuth,
-            onAuthStateChanged,
-            signOut
+    <div class="params">
 
+        <h2>Paramètres</h2>
+
+        <p><b>WhatsApp :</b> 509 3146 5733</p>
+
+        <p><b>Email :</b>
+            investissementcash41@gmail.com
+        </p>
+
+        <p><b>Retrait minimum :</b>
+            1750 HTG
+        </p>
+
+        <p><b>Frais retrait :</b>
+            8%
+        </p>
+
+        <p><b>Bonus fidélité :</b>
+            500 HTG
+        </p>
+
+        <p><b>Parrainage :</b>
+            1%
+        </p>
+
+    </div>
+
+    <button class="logout" onclick="logout()">
+        Déconnexion
+    </button>
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+        getAuth,
+        onAuthStateChanged,
+        signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    import {
+        getFirestore,
+        doc,
+        getDoc,
+        collection,
+        getDocs
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
+        authDomain: "cashinvestissement-f8104.firebaseapp.com",
+        projectId: "cashinvestissement-f8104",
+        storageBucket: "cashinvestissement-f8104.firebasestorage.app",
+        messagingSenderId: "645010004253",
+        appId: "1:645010004253:web:e885536adcc0f1966e69f4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    window.logout = async function () {
+        await signOut(auth);
+        window.location.href = "login.html";
+    };
+
+    onAuthStateChanged(auth, async (user) => {
+
+        if (!user) {
+            window.location.href = "login.html";
+            return;
         }
 
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
 
-        import {
+        if (userSnap.exists()) {
 
-            getFirestore,
-            doc,
-            getDoc,
-            setDoc,
-            updateDoc
+            const data = userSnap.data();
+
+            document.getElementById("userName").textContent =
+                data.nom || "Utilisateur";
+
+            document.getElementById("soldeInvestissement").textContent =
+                (data.soldeInvestissement || 0) + " HTG";
+
+            document.getElementById("soldePrincipal").textContent =
+                (data.soldePrincipal || 0) + " HTG";
+
+            document.getElementById("soldeParrainage").textContent =
+                (data.soldeParrainage || 0) + " HTG";
+
+            document.getElementById("totalDepots").textContent =
+                (data.totalDepots || 0) + " HTG";
+
+            document.getElementById("totalRetraits").textContent =
+                (data.totalRetraits || 0) + " HTG";
+
+            document.getElementById("totalGains").textContent =
+                (data.totalGains || 0) + " HTG";
+
+            document.getElementById("nombreFilleuls").textContent =
+                data.nombreFilleuls || 0;
 
         }
-
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-
-        const firebaseConfig = {
-
-            apiKey: "AIzaSyCRIgagg1fOm_1fcYLCA79C44i2BKTiujQ",
-            authDomain: "cashinvestissement-f8104.firebaseapp.com",
-            projectId: "cashinvestissement-f8104",
-            storageBucket: "cashinvestissement-f8104.firebasestorage.app",
-            messagingSenderId: "645010004253",
-            appId: "1:645010004253:web:e885536adcc0f1966e69f4"
-
-        };
-
-
-
-        const app = initializeApp(firebaseConfig);
-
-        const auth = getAuth(app);
-
-        const db = getFirestore(app);
-
-
-
-        let currentUserBalance = 0;
-
-
-
-        // PLANS
-
-        const plans = [
-
-            {
-                name: "Plan Starter",
-                price: 1500,
-                duration: 300,
-                dailyPercent: 4,
-                dailyGain: 60,
-                totalGain: 18000
-            },
-
-            {
-                name: "Plan Silver",
-                price: 5000,
-                duration: 300,
-                dailyPercent: 4,
-                dailyGain: 200,
-                totalGain: 60000
-            },
-
-            {
-                name: "Plan Gold",
-                price: 10000,
-                duration: 300,
-                dailyPercent: 4,
-                dailyGain: 400,
-                totalGain: 120000
-            },
-
-            {
-                name: "Plan Diamond",
-                price: 15000,
-                duration: 300,
-                dailyPercent: 4,
-                dailyGain: 600,
-                totalGain: 180000
-            },
-
-            {
-                name: "Plan Pro 50K",
-                price: 50000,
-                duration: 60,
-                dailyPercent: 5,
-                dailyGain: 2500,
-                totalGain: 150000
-            },
-
-            {
-                name: "Plan Pro 75K",
-                price: 75000,
-                duration: 60,
-                dailyPercent: 5,
-                dailyGain: 3750,
-                totalGain: 225000
-            },
-
-            {
-                name: "Plan Pro 100K",
-                price: 100000,
-                duration: 60,
-                dailyPercent: 5,
-                dailyGain: 5000,
-                totalGain: 300000
-            },
-
-            {
-                name: "Plan Pro 150K",
-                price: 150000,
-                duration: 60,
-                dailyPercent: 5,
-                dailyGain: 7500,
-                totalGain: 450000
-            }
-
-        ];
-
-
 
         const plansContainer =
-            document.getElementById("plans-container");
+            document.getElementById("plansContainer");
 
+        plansContainer.innerHTML = "";
 
+        const plansSnapshot =
+            await getDocs(collection(db, "plans"));
 
-        plans.forEach((plan) => {
+        plansSnapshot.forEach((docu) => {
+
+            const plan = docu.data();
 
             plansContainer.innerHTML += `
-
-<div class="plan-card">
-
-<h2>${plan.name}</h2>
-
-<div class="plan-price">
-${plan.price.toLocaleString()} HTG
-</div>
-
-<div class="plan-detail">
-<strong>Durée:</strong>
-${plan.duration} jours
-</div>
-
-<div class="plan-detail">
-<strong>Intérêt Journalier:</strong>
-${plan.dailyPercent}%
-</div>
-
-<div class="plan-detail">
-<strong>Gain Quotidien:</strong>
-${plan.dailyGain.toLocaleString()} HTG
-</div>
-
-<div class="plan-detail"
-style="color:#22c55e;font-weight:bold;margin-top:10px;">
-
-Gains Possibles:
-${plan.totalGain.toLocaleString()} HTG
-
-</div>
-
-<button class="buy-btn"
-onclick="buyPlan('${plan.name}', ${plan.price})">
-
-Acheter
-
+<div class="plan">
+<h4>${plan.nom}</h4>
+<p>Montant : ${plan.montant} HTG</p>
+<p>Gain journalier : ${plan.gainJournalier} HTG</p>
+<p>Durée : ${plan.duree} jours</p>
+<button onclick="investir(
+'${docu.id}',
+'${plan.nom}',
+${plan.montant},
+${plan.gainjournalier},
+${plan.duree}
+)">
+Investir
 </button>
 
 </div>
-
 `;
 
         });
 
+    });
+    window.investir = async function (
+        planId,
+        planNom,
+        montant,
+        gainJournalier,
+        duree
+    ) {
 
+        const user = auth.currentUser;
 
+        if (!user) {
+            alert("Connexion requise");
+            return;
+        }
 
-        // AUTH
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
 
-        onAuthStateChanged(auth, async (user) => {
+        if (!userSnap.exists()) {
+            alert("Utilisateur introuvable");
+            return;
+        }
 
-            if (user) {
+        const data = userSnap.data();
 
-                document.getElementById("referralCode")
-                    .innerText = user.uid.substring(0, 8);
+        const soldeDisponible =
+            (Number(data.soldeInvestissement) || 0)
+            +
+            (Number(data.soldeParrainage) || 0);
 
-                const userRef = doc(db, "users", user.uid);
+        if (soldeDisponible < montant) {
+            alert("Solde insuffisant");
+            return;
+        }
 
-                const userSnap = await getDoc(userRef);
-
-
-
-                if (userSnap.exists()) {
-
-                    const data = userSnap.data();
-
-                    currentUserBalance =
-                        data.balance || 0;
-
-                    document.getElementById("balance")
-                        .innerText =
-                        currentUserBalance.toLocaleString()
-                        + " HTG";
-
-                    document.getElementById("profits")
-                        .innerText =
-                        (data.profits || 0).toLocaleString()
-                        + " HTG";
-
-                    document.getElementById("commissions")
-                        .innerText =
-                        (data.commissions || 0).toLocaleString()
-                        + " HTG";
-
-                    document.getElementById("activePlans")
-                        .innerText =
-                        data.activePlans || 0;
-
-                } else {
-
-                    await setDoc(userRef, {
-
-                        balance: 100,
-                        profits: 0,
-                        commissions: 0,
-                        activePlans: 0
-
-                    });
-
-                    document.getElementById("balance")
-                        .innerText = "100 HTG";
-
-                    document.getElementById("profits")
-                        .innerText = "0 HTG";
-
-                    document.getElementById("commissions")
-                        .innerText = "0 HTG";
-
-                    document.getElementById("activePlans")
-                        .innerText = "0";
-
-                }
-
-            } else {
-
-                window.location.href =
-                    "login.html";
-
+        await addDoc(
+            collection(db, "investissements"),
+            {
+                userId: user.uid,
+                planNom: planNom,
+                montant: montant,
+                gainJournalier: gainJournalier,
+                duree: duree,
+                joursRestants: duree,
+                statut: "actif",
+                dateDebut: new Date()
             }
+        );
 
+        await updateDoc(userRef, {
+            soldeInvestissement:
+                (Number(data.soldeInvestissement) || 0) - montant
         });
 
+        alert("Investissement effectué avec succès");
 
+        location.reload();
 
+    }
 
-        // ACHAT PLAN
-
-        window.buyPlan = async function (planName, price) {
-
-            if (currentUserBalance < price) {
-
-                alert("Solde insuffisant !");
-
-                return;
-
-            }
-
-            const confirmBuy = confirm(
-
-                "Voulez-vous acheter " +
-                planName +
-                " pour " +
-                price.toLocaleString() +
-                " HTG ?"
-
-            );
-
-            if (confirmBuy) {
-
-                currentUserBalance -= price;
-
-                document.getElementById("balance")
-                    .innerText =
-                    currentUserBalance.toLocaleString()
-                    + " HTG";
-
-                alert("Plan acheté avec succès !");
-
-            }
-
-        }
-
-
-
-
-        // COPY REFERRAL
-
-        window.copyReferral = function () {
-
-            const code =
-                document.getElementById("referralCode")
-                    .innerText;
-
-            navigator.clipboard.writeText(code);
-
-            alert("Code copié avec succès !");
-
-        }
-
-
-
-
-        // DEPOT
-
-        window.goDeposit = function () {
-
-            alert(
-                "Page dépôt bientôt disponible"
-            );
-
-        }
-
-
-
-
-        // RETRAIT
-
-        window.goWithdraw = function () {
-
-            if (currentUserBalance < 1750) {
-
-                alert(
-                    "Le retrait minimum est de 1,750 HTG"
-                );
-
-                return;
-
-            }
-
-            alert(
-                "Demande de retrait envoyée avec succès !"
-            );
-
-        }
-
-
-
-
-        // LOGOUT
-
-        window.logout = async function () {
-
-            await signOut(auth);
-
-            alert("Déconnexion réussie");
-
-            window.location.href =
-                "login.html";
-
-        }
-
-    </script>
+</script>
 
 </body>
 
