@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -336,19 +336,22 @@
         const table =
             document.getElementById("depositsTable");
 
-        table.innerHTML = "";
-
-        querySnapshot.forEach((docu) => {
-
-            total++;
-
-            const data = docu.data();
-
-            table.innerHTML += `
+        table.innerHTML += `
 <tr>
-<td>${data.fullName || data.nom || ""}</td>
+<td>${data.fullName || ""}</td>
 <td>${data.montant || 0}</td>
-<td>${data.status || "En attente"}</td>
+<td>${data.statut || "En attente"}</td>
+
+<td>
+<button onclick="approuver('${docu.id}','depotDemandes')">
+✅ Approuver
+</button>
+
+<button onclick="refuser('${docu.id}','depotDemandes')">
+❌ Refuser
+</button>
+</td>
+
 </tr>
 `;
 
@@ -369,15 +372,25 @@
         const table =
             document.getElementById("withdrawalsTable");
 
-        table.innerHTML = "";
+        table.innerHTML += `
+<tr>
+<td>${data.fullName || ""}</td>
+<td>${data.montant || 0}</td>
+<td>${data.statut || "En attente"}</td>
 
-        querySnapshot.forEach((docu) => {
+<td>
+<button onclick="approuver('${docu.id}','retraits')">
+✅ Approuver
+</button>
 
-            total++;
+<button onclick="refuser('${docu.id}','retraits')">
+❌ Refuser
+</button>
+</td>
 
-            const data = docu.data();
+</tr>
+`;
 
-            table.innerHTML += `
 <tr>
 <td>${data.fullName || data.nom || ""}</td>
 <td>${data.montant || 0}</td>
